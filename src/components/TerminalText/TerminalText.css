@@ -1,0 +1,36 @@
+.terminal-text {
+  font-size: 9px;
+  line-height: 1.9;
+  letter-spacing: 0.8px;
+  color: #628d68;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: baseline;
+  min-height: 17px;
+}
+
+.terminal-prompt {
+  margin-right: 8px;
+  color: #8cff9a;
+  text-shadow: 0 0 6px rgba(100, 255, 120, 0.7);
+}
+
+.terminal-cursor {
+  margin-left: 2px;
+  color: #aaffb2;
+  animation: terminal-blink 0.9s steps(1) infinite;
+}
+
+@keyframes terminal-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
