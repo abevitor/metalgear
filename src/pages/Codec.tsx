@@ -1,3 +1,3 @@
 export function Codec() {
-    return <h2>CODEC</h2>
+   return <h2>CODEC</h2>
 }

@@ -8,7 +8,7 @@ import './CommandCenterLayout.css'
 export function CommandCenterLayout(){
     return (
         <div className="command-layout">
-            <SideBar />
+            <Sidebar />
             <main className="command-main"> 
                 <Header />
                 <section className="command-content">

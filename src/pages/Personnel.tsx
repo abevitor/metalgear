@@ -1,3 +1,3 @@
 export function Personnel() {
-    return <h2>PERSONNEL</h2>
+   return <h2>PERSONNEL</h2>
 }

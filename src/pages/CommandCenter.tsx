@@ -1,3 +1,3 @@
 export function CommandCenter() {
-    return <h2>COMMAND CENTER</h2>
+    return <h2>COMMANDCENTER</h2>
 }
