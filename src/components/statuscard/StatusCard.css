@@ -36,7 +36,7 @@
 }
 
 .status-card-label {
-  font-size: 9px;
+  font-size: 20px;
   letter-spacing: 2px;
   color: #557b5b;
 }
@@ -54,7 +54,7 @@
 }
 
 .status-card-value strong {
-  font-size: 19px;
+  font-size: 25px;
   font-weight: normal;
   letter-spacing: 2px;
   color: #caffd0;
@@ -86,7 +86,7 @@
 .status-card-description {
   position: relative;
   margin-top: 11px;
-  font-size: 8px;
+  font-size: 15px;
   line-height: 1.6;
   letter-spacing: 1px;
   color: #4f7455;
