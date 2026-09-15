@@ -1,0 +1,114 @@
+.status-card {
+  position: relative;
+  min-height: 145px;
+  padding: 18px 20px;
+  border: 1px solid rgba(126, 255, 143, 0.2);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(90, 255, 110, 0.035),
+      rgba(0, 0, 0, 0.2)
+    );
+  overflow: hidden;
+}
+
+.status-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 3px,
+      rgba(100, 255, 120, 0.012) 3px,
+      rgba(100, 255, 120, 0.012) 4px
+    );
+}
+
+.status-card-top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.status-card-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #557b5b;
+}
+
+.status-card-icon {
+  display: flex;
+  color: #557b5b;
+}
+
+.status-card-value {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-card-value strong {
+  font-size: 19px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #caffd0;
+  text-shadow: 0 0 8px rgba(100, 255, 120, 0.45);
+}
+
+.status-card-indicator {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.status-card-indicator.online {
+  background: #8cff9a;
+  box-shadow: 0 0 8px #8cff9a;
+}
+
+.status-card-indicator.warning {
+  background: #c8ff70;
+  box-shadow: 0 0 8px #c8ff70;
+}
+
+.status-card-indicator.offline {
+  background: #547058;
+  box-shadow: 0 0 5px rgba(100, 140, 105, 0.5);
+}
+
+.status-card-description {
+  position: relative;
+  margin-top: 11px;
+  font-size: 8px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  color: #4f7455;
+}
+
+.status-card-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.status-card-corner-tl {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid rgba(150, 255, 165, 0.65);
+  border-left: 2px solid rgba(150, 255, 165, 0.65);
+}
+
+.status-card-corner-br {
+  right: -1px;
+  bottom: -1px;
+  border-right: 2px solid rgba(150, 255, 165, 0.35);
+  border-bottom: 2px solid rgba(150, 255, 165, 0.35);
+}
