@@ -23,12 +23,12 @@ export const characters: Character[] = [
   },
   {
     id: 'PF-002',
-    name: 'BIG BOSS',
-    codename: 'NAKED SNAKE',
+    name: 'DAVID',
+    codename: 'SOLID SNAKE',
     affiliation: 'FOX',
     status: 'CLASSIFIED',
     specialty: 'SPECIAL OPERATIONS',
-    image: '/images/big-boss.jpg',
+    image: '/images/solid-snake.gif',
     history:
       'Legendary soldier whose career shaped much of the modern history surrounding private military organizations and covert operations.',
   },
@@ -39,7 +39,7 @@ export const characters: Character[] = [
     affiliation: 'CIVILIAN',
     status: 'ACTIVE',
     specialty: 'ENGINEERING',
-    image: '/images/otacon.jpg',
+    image: '/images/otacon.gif',
     history:
       'Engineer and technical specialist who became an important ally during multiple operations involving advanced weapons systems.',
   },
