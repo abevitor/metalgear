@@ -1,39 +1,64 @@
 .personnel-card {
   position: relative;
+
   width: 238px;
   min-width: 238px;
   max-width: 238px;
+
   padding: 0;
+
   text-align: left;
+
   cursor: pointer;
+
   border: 1px solid rgba(130, 255, 150, 0.2);
+
   background: #020402;
+
   color: inherit;
+
   overflow: hidden;
+
+  box-sizing: border-box;
+
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
+/* =========================
+   CARD HOVER
+   ========================= */
+
 .personnel-card:hover {
   border-color: rgba(145, 255, 160, 0.65);
+
   box-shadow:
     0 0 15px rgba(80, 255, 100, 0.08),
     inset 0 0 20px rgba(80, 255, 100, 0.04);
 }
 
+/* =========================
+   IMAGE
+   ========================= */
+
 .personnel-card-image {
   position: relative;
+
   width: 238px;
   height: 373px;
+
   overflow: hidden;
+
   background: #000;
 }
 
 .personnel-card-image img {
   width: 238px;
   height: 373px;
+
   display: block;
+
   object-fit: cover;
   object-position: center;
 
@@ -44,6 +69,7 @@
     hue-rotate(55deg)
     brightness(0.65)
     contrast(1.15);
+
   opacity: 0.8;
 
   transition:
@@ -52,7 +78,7 @@
     transform 0.3s ease;
 }
 
-.personnel-card:hover img {
+.personnel-card:hover .personnel-card-image img {
   filter:
     grayscale(1)
     sepia(1)
@@ -62,16 +88,22 @@
     contrast(1.4);
 
   opacity: 1;
+
   transform: scale(1.025);
 }
 
-/* STATIC */
+/* =========================
+   STATIC
+   ========================= */
 
 .personnel-static {
   position: absolute;
   inset: 0;
+
   pointer-events: none;
+
   opacity: 0;
+
   background:
     repeating-linear-gradient(
       0deg,
@@ -93,31 +125,48 @@
 
 .personnel-card:hover .personnel-static {
   opacity: 1;
-  animation: personnel-static 0.12s steps(2) infinite;
+
+  animation:
+    personnel-static 0.12s steps(2) infinite;
 }
 
-/* SCANLINE */
+/* =========================
+   SCANLINE
+   ========================= */
 
 .personnel-scanline {
   position: absolute;
+
   left: 0;
   right: 0;
+
   top: -20%;
+
   height: 25%;
+
   pointer-events: none;
+
   opacity: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(130, 255, 150, 0.14),
-    transparent
-  );
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(130, 255, 150, 0.14),
+      transparent
+    );
 }
 
 .personnel-card:hover .personnel-scanline {
   opacity: 1;
-  animation: personnel-scan 1s linear infinite;
+
+  animation:
+    personnel-scan 1s linear infinite;
 }
+
+/* =========================
+   STATIC ANIMATION
+   ========================= */
 
 @keyframes personnel-static {
   0% {
@@ -141,6 +190,10 @@
   }
 }
 
+/* =========================
+   SCAN ANIMATION
+   ========================= */
+
 @keyframes personnel-scan {
   from {
     top: -25%;
@@ -151,14 +204,21 @@
   }
 }
 
-/* TARGET */
+/* =========================
+   TARGET FRAME
+   ========================= */
 
 .personnel-target {
   position: absolute;
+
   inset: 10px;
+
   border: 1px solid transparent;
+
   pointer-events: none;
-  transition: border-color 0.2s ease;
+
+  transition:
+    border-color 0.2s ease;
 }
 
 .personnel-card:hover .personnel-target {
@@ -168,7 +228,9 @@
 .personnel-target::before,
 .personnel-target::after {
   content: '';
+
   position: absolute;
+
   width: 15px;
   height: 15px;
 }
@@ -176,6 +238,7 @@
 .personnel-target::before {
   top: -1px;
   left: -1px;
+
   border-top: 2px solid #8cff9a;
   border-left: 2px solid #8cff9a;
 }
@@ -183,20 +246,29 @@
 .personnel-target::after {
   right: -1px;
   bottom: -1px;
+
   border-right: 2px solid #8cff9a;
   border-bottom: 2px solid #8cff9a;
 }
 
-/* IMAGE INFO */
+/* =========================
+   IMAGE INFORMATION
+   ========================= */
 
 .personnel-id,
 .personnel-access {
   position: absolute;
+
   z-index: 2;
+
   font-size: 15px;
+
   letter-spacing: 1.5px;
+
   color: #9dffa7;
-  text-shadow: 0 0 6px rgba(100, 255, 120, 0.7);
+
+  text-shadow:
+    0 0 6px rgba(100, 255, 120, 0.7);
 }
 
 .personnel-id {
@@ -207,40 +279,61 @@
 .personnel-access {
   right: 12px;
   bottom: 12px;
+
   opacity: 0.7;
 }
 
-/* CARD INFO */
+/* =========================
+   CARD INFORMATION
+   ========================= */
 
 .personnel-card-info {
   display: flex;
   flex-direction: column;
+
   gap: 5px;
+
   width: 238px;
+
   padding: 14px 15px 16px;
+
   border-top: 1px solid rgba(130, 255, 150, 0.12);
+
   box-sizing: border-box;
 }
 
 .personnel-codename {
   font-size: 20px;
+
   letter-spacing: 2px;
+
   color: #4f7455;
 }
 
 .personnel-card-info strong {
   font-size: 20px;
+
   font-weight: normal;
+
   letter-spacing: 2px;
+
   color: #c4ffca;
-  text-shadow: 0 0 7px rgba(100, 255, 120, 0.35);
+
+  text-shadow:
+    0 0 7px rgba(100, 255, 120, 0.35);
 }
 
 .personnel-affiliation {
   font-size: 17px;
+
   letter-spacing: 1.5px;
+
   color: #638a69;
 }
+
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 700px) {
   .personnel-card-info strong {

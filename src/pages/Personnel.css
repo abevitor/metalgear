@@ -4,7 +4,9 @@
   margin: 0 auto;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+   ========================= */
 
 .personnel-heading {
   display: flex;
@@ -32,7 +34,7 @@
 
 .personnel-heading p {
   margin-top: 9px;
-  font-size: 12px;
+  font-size: 1px;
   letter-spacing: 1.5px;
   color: #527357;
 }
@@ -57,7 +59,9 @@
   text-shadow: 0 0 9px rgba(80, 255, 100, 0.35);
 }
 
-/* DIVIDER */
+/* =========================
+   DIVIDER
+   ========================= */
 
 .personnel-divider {
   display: flex;
@@ -79,44 +83,64 @@
   color: #4e7255;
 }
 
-/* GRID */
+/* =========================
+   GRID
+   ========================= */
 
 .personnel-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, 238px);
+  gap: 18px;
+  justify-content: start;
+  align-items: start;
 }
 
-/* MODAL */
+/* =========================
+   MODAL OVERLAY
+   ========================= */
 
 .personnel-modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 10000;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 35px;
+
   background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(3px);
+
   animation: personnel-overlay-in 0.15s ease;
 }
 
+/* =========================
+   MODAL
+   ========================= */
+
 .personnel-modal {
   position: relative;
+
   width: min(1100px, 100%);
   max-height: 90vh;
+
   overflow: auto;
+
   border: 1px solid rgba(140, 255, 160, 0.35);
+
   background:
     linear-gradient(
       135deg,
       rgba(50, 255, 80, 0.04),
       rgba(0, 0, 0, 0.95)
     );
+
   box-shadow:
     0 0 40px rgba(0, 255, 80, 0.08),
     inset 0 0 35px rgba(0, 255, 80, 0.025);
+
   animation: personnel-modal-in 0.2s ease;
 }
 
@@ -124,14 +148,17 @@
 .personnel-modal::after {
   content: '';
   position: absolute;
+
   width: 18px;
   height: 18px;
+
   pointer-events: none;
 }
 
 .personnel-modal::before {
   top: -1px;
   left: -1px;
+
   border-top: 2px solid #9aff9f;
   border-left: 2px solid #9aff9f;
 }
@@ -139,23 +166,35 @@
 .personnel-modal::after {
   right: -1px;
   bottom: -1px;
+
   border-right: 2px solid #9aff9f;
   border-bottom: 2px solid #9aff9f;
 }
 
+/* =========================
+   MODAL CLOSE
+   ========================= */
+
 .personnel-modal-close {
   position: absolute;
   z-index: 3;
+
   top: 13px;
   right: 14px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 30px;
   height: 30px;
+
   cursor: pointer;
+
   border: 1px solid rgba(140, 255, 160, 0.18);
+
   color: #83ab88;
+
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
@@ -166,28 +205,51 @@
   border-color: rgba(140, 255, 160, 0.5);
 }
 
+/* =========================
+   MODAL TOP
+   ========================= */
+
 .personnel-modal-top {
   display: flex;
   justify-content: space-between;
+
   padding: 15px 52px 15px 18px;
+
   border-bottom: 1px solid rgba(140, 255, 160, 0.12);
+
   font-size: 25px;
   letter-spacing: 1.8px;
+
   color: #83ab88;
 }
+
+/* =========================
+   MODAL CONTENT
+   ========================= */
 
 .personnel-modal-content {
   display: grid;
   grid-template-columns: minmax(280px, 390px) 1fr;
+
   gap: 28px;
+
   padding: 25px;
 }
 
+/* =========================
+   MODAL IMAGE
+   ========================= */
+
 .personnel-modal-image {
   position: relative;
+
+  width: 100%;
   min-height: 390px;
+
   border: 1px solid rgba(130, 255, 150, 0.2);
+
   overflow: hidden;
+
   background: #000;
 }
 
@@ -195,8 +257,11 @@
   width: 100%;
   height: 100%;
   min-height: 390px;
+
   display: block;
+
   object-fit: cover;
+
   filter:
     grayscale(1)
     sepia(1)
@@ -209,7 +274,9 @@
 .personnel-modal-static {
   position: absolute;
   inset: 0;
+
   pointer-events: none;
+
   background:
     repeating-linear-gradient(
       0deg,
@@ -218,8 +285,13 @@
       rgba(160, 255, 170, 0.06) 4px,
       transparent 5px
     );
+
   mix-blend-mode: screen;
 }
+
+/* =========================
+   MODAL INFO
+   ========================= */
 
 .personnel-modal-info {
   padding-top: 5px;
@@ -228,93 +300,128 @@
 .personnel-modal-classification {
   font-size: 40px;
   letter-spacing: 2px;
-  color:  #caffd0 #4e7554;
+  color: #4e7554;
 }
 
 .personnel-modal-info h3 {
   margin-top: 12px;
+
   font-size: 35px;
   font-weight: normal;
+
   letter-spacing: 4px;
+
   color: #59a164;
+
   text-shadow: 0 0 10px rgba(80, 255, 100, 0.45);
 }
 
 .personnel-modal-codename {
   display: block;
+
   margin-top: 8px;
+
   font-size: 15px;
   letter-spacing: 2px;
+
   color: #6d9472;
 }
 
-/* DATA */
+/* =========================
+   DATA
+   ========================= */
 
 .personnel-data-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   gap: 10px;
+
   margin-top: 28px;
 }
 
 .personnel-data-grid > div {
   padding: 12px;
+
   border: 1px solid rgba(130, 255, 150, 0.12);
+
   background: rgba(80, 255, 100, 0.018);
 }
 
 .personnel-data-grid span {
   display: block;
+
   margin-bottom: 7px;
+
   font-size: 18px;
   letter-spacing: 2px;
+
   color: #a5d9aa;
 }
 
 .personnel-data-grid strong {
   font-size: 15px;
   font-weight: normal;
+
   letter-spacing: 1px;
+
   color: #4b6d51;
 }
 
-/* HISTORY */
+/* =========================
+   HISTORY
+   ========================= */
 
 .personnel-history {
   margin-top: 18px;
+
   padding-top: 18px;
+
   border-top: 1px solid rgba(130, 255, 150, 0.12);
 }
 
 .personnel-history > span {
   display: block;
+
   margin-bottom: 12px;
+
   font-size: 20px;
   letter-spacing: 2px;
+
   color: #a5d9aa;
 }
 
 .personnel-history p {
   max-width: 700px;
+
   font-size: 16px;
   line-height: 1.8;
   letter-spacing: 0.4px;
+
   color: #4b6d51;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+   ========================= */
 
 .personnel-modal-footer {
   display: flex;
   justify-content: space-between;
+
   padding: 11px 18px;
+
   border-top: 1px solid rgba(130, 255, 150, 0.12);
+
   font-size: 15px;
   letter-spacing: 1.5px;
+
   color: #a5d9aa;
 }
 
-/* ANIMATION */
+/* =========================
+   ANIMATIONS
+   ========================= */
 
 @keyframes personnel-overlay-in {
   from {
@@ -338,11 +445,19 @@
   }
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .personnel-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 238px);
+  }
+}
+
+@media (max-width: 900px) {
+  .personnel-grid {
+    grid-template-columns: repeat(2, 238px);
   }
 
   .personnel-modal-content {
@@ -369,7 +484,7 @@
   }
 
   .personnel-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 238px;
   }
 
   .personnel-modal-overlay {

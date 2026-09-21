@@ -47,4 +47,17 @@ export const characters: Character[] = [
     history:
       'Engineer and technical specialist who became an important ally during multiple operations involving advanced weapons systems.',
   },
+  {
+    id: 'PF-003',
+    name: 'OTACON',
+    codename: 'HAL EMMERICH',
+    affiliation: 'CIVILIAN',
+    status: 'ACTIVE',
+    specialty: 'ENGINEERING',
+    cardImage: '',
+    modalImage:'/images/otacon.gif',
+    history:
+      'Engineer and technical specialist who became an important ally during multiple operations involving advanced weapons systems.',
+  },
+  
 ]
