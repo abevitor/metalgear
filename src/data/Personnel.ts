@@ -30,7 +30,7 @@ export const characters: Character[] = [
     affiliation: 'FOX',
     status: 'CLASSIFIED',
     specialty: 'SPECIAL OPERATIONS',
-    cardImage: '',
+    cardImage: '/images/solid-snake.gif',
     modalImage: '/images/solid-snake.gif',
     history:
       'Legendary soldier whose career shaped much of the modern history surrounding private military organizations and covert operations.',

@@ -17,7 +17,7 @@
 .personnel-heading > div:first-child > span {
   display: block;
   margin-bottom: 9px;
-  font-size: 9px;
+  font-size: 15px;
   letter-spacing: 3px;
   color: #527657;
 }
@@ -32,7 +32,7 @@
 
 .personnel-heading p {
   margin-top: 9px;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1.5px;
   color: #527357;
 }
@@ -45,7 +45,7 @@
 }
 
 .personnel-counter span {
-  font-size: 8px;
+  font-size: 15px;
   letter-spacing: 2px;
   color: #496d50;
 }
@@ -74,7 +74,7 @@
 
 .personnel-divider small {
   white-space: nowrap;
-  font-size: 8px;
+  font-size: 20px;
   letter-spacing: 2px;
   color: #4e7255;
 }
@@ -171,9 +171,9 @@
   justify-content: space-between;
   padding: 15px 52px 15px 18px;
   border-bottom: 1px solid rgba(140, 255, 160, 0.12);
-  font-size: 8px;
+  font-size: 25px;
   letter-spacing: 1.8px;
-  color: #4e7255;
+  color: #83ab88;
 }
 
 .personnel-modal-content {
@@ -226,24 +226,24 @@
 }
 
 .personnel-modal-classification {
-  font-size: 8px;
+  font-size: 40px;
   letter-spacing: 2px;
-  color: #4e7554;
+  color:  #caffd0 #4e7554;
 }
 
 .personnel-modal-info h3 {
   margin-top: 12px;
-  font-size: 29px;
+  font-size: 35px;
   font-weight: normal;
   letter-spacing: 4px;
-  color: #caffd0;
+  color: #59a164;
   text-shadow: 0 0 10px rgba(80, 255, 100, 0.45);
 }
 
 .personnel-modal-codename {
   display: block;
   margin-top: 8px;
-  font-size: 9px;
+  font-size: 15px;
   letter-spacing: 2px;
   color: #6d9472;
 }
@@ -266,16 +266,16 @@
 .personnel-data-grid span {
   display: block;
   margin-bottom: 7px;
-  font-size: 7px;
+  font-size: 18px;
   letter-spacing: 2px;
-  color: #4b6d51;
+  color: #a5d9aa;
 }
 
 .personnel-data-grid strong {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: normal;
   letter-spacing: 1px;
-  color: #a5d9aa;
+  color: #4b6d51;
 }
 
 /* HISTORY */
@@ -289,17 +289,17 @@
 .personnel-history > span {
   display: block;
   margin-bottom: 12px;
-  font-size: 8px;
+  font-size: 20px;
   letter-spacing: 2px;
-  color: #557d5b;
+  color: #a5d9aa;
 }
 
 .personnel-history p {
   max-width: 700px;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1.8;
   letter-spacing: 0.4px;
-  color: #719777;
+  color: #4b6d51;
 }
 
 /* FOOTER */
@@ -309,9 +309,9 @@
   justify-content: space-between;
   padding: 11px 18px;
   border-top: 1px solid rgba(130, 255, 150, 0.12);
-  font-size: 7px;
+  font-size: 15px;
   letter-spacing: 1.5px;
-  color: #3e6044;
+  color: #a5d9aa;
 }
 
 /* ANIMATION */

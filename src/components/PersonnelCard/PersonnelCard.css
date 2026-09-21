@@ -1,6 +1,8 @@
 .personnel-card {
   position: relative;
-  width: 100%;
+  width: 238px;
+  min-width: 238px;
+  max-width: 238px;
   padding: 0;
   text-align: left;
   cursor: pointer;
@@ -22,17 +24,19 @@
 
 .personnel-card-image {
   position: relative;
-  height: 200px;
+  width: 238px;
+  height: 373px;
   overflow: hidden;
   background: #000;
 }
 
 .personnel-card-image img {
-  width: 100%;
-  height: 100%;
+  width: 238px;
+  height: 373px;
   display: block;
-  object-fit: fill;
+  object-fit: cover;
   object-position: center;
+
   filter:
     grayscale(1)
     sepia(1)
@@ -189,7 +193,7 @@
 .personnel-access {
   position: absolute;
   z-index: 2;
-  font-size: 8px;
+  font-size: 15px;
   letter-spacing: 1.5px;
   color: #9dffa7;
   text-shadow: 0 0 6px rgba(100, 255, 120, 0.7);
@@ -212,18 +216,20 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 238px;
   padding: 14px 15px 16px;
   border-top: 1px solid rgba(130, 255, 150, 0.12);
+  box-sizing: border-box;
 }
 
 .personnel-codename {
-  font-size: 8px;
+  font-size: 20px;
   letter-spacing: 2px;
   color: #4f7455;
 }
 
 .personnel-card-info strong {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: normal;
   letter-spacing: 2px;
   color: #c4ffca;
@@ -231,7 +237,7 @@
 }
 
 .personnel-affiliation {
-  font-size: 9px;
+  font-size: 17px;
   letter-spacing: 1.5px;
   color: #638a69;
 }
