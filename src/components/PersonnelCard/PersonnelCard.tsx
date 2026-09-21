@@ -18,7 +18,7 @@ export function PersonnelCard({
         >
             <div className="personnel-card-image">
                 <img
-                src={character.image}
+                src={character.cardImage}
                 alt={character.name}
                 />
 

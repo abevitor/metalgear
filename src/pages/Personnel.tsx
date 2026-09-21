@@ -73,7 +73,7 @@ export function Personnel() {
             <div className="personnel-modal-content">
               <div className="personnel-modal-image">
                 <img
-                  src={selectedCharacter.image}
+                  src={selectedCharacter.modalImage}
                   alt={selectedCharacter.name}
                 />
 
