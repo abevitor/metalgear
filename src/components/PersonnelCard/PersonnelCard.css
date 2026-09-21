@@ -1,0 +1,242 @@
+.personnel-card {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid rgba(130, 255, 150, 0.2);
+  background: #020402;
+  color: inherit;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.personnel-card:hover {
+  border-color: rgba(145, 255, 160, 0.65);
+  box-shadow:
+    0 0 15px rgba(80, 255, 100, 0.08),
+    inset 0 0 20px rgba(80, 255, 100, 0.04);
+}
+
+.personnel-card-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #000;
+}
+
+.personnel-card-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter:
+    grayscale(1)
+    sepia(1)
+    saturate(3)
+    hue-rotate(55deg)
+    brightness(0.65)
+    contrast(1.15);
+  opacity: 0.8;
+
+  transition:
+    filter 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.3s ease;
+}
+
+.personnel-card:hover img {
+  filter:
+    grayscale(1)
+    sepia(1)
+    saturate(5)
+    hue-rotate(55deg)
+    brightness(0.9)
+    contrast(1.4);
+
+  opacity: 1;
+  transform: scale(1.025);
+}
+
+/* STATIC */
+
+.personnel-static {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(150, 255, 160, 0.16) 3px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 4px,
+      rgba(80, 255, 100, 0.07) 5px,
+      transparent 6px
+    );
+
+  mix-blend-mode: screen;
+}
+
+.personnel-card:hover .personnel-static {
+  opacity: 1;
+  animation: personnel-static 0.12s steps(2) infinite;
+}
+
+/* SCANLINE */
+
+.personnel-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20%;
+  height: 25%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(130, 255, 150, 0.14),
+    transparent
+  );
+}
+
+.personnel-card:hover .personnel-scanline {
+  opacity: 1;
+  animation: personnel-scan 1s linear infinite;
+}
+
+@keyframes personnel-static {
+  0% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(-2px, 1px);
+  }
+
+  50% {
+    transform: translate(2px, -1px);
+  }
+
+  75% {
+    transform: translate(-1px, -2px);
+  }
+
+  100% {
+    transform: translate(1px, 2px);
+  }
+}
+
+@keyframes personnel-scan {
+  from {
+    top: -25%;
+  }
+
+  to {
+    top: 110%;
+  }
+}
+
+/* TARGET */
+
+.personnel-target {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.2s ease;
+}
+
+.personnel-card:hover .personnel-target {
+  border-color: rgba(150, 255, 165, 0.25);
+}
+
+.personnel-target::before,
+.personnel-target::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+}
+
+.personnel-target::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #8cff9a;
+  border-left: 2px solid #8cff9a;
+}
+
+.personnel-target::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 2px solid #8cff9a;
+  border-bottom: 2px solid #8cff9a;
+}
+
+/* IMAGE INFO */
+
+.personnel-id,
+.personnel-access {
+  position: absolute;
+  z-index: 2;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #9dffa7;
+  text-shadow: 0 0 6px rgba(100, 255, 120, 0.7);
+}
+
+.personnel-id {
+  top: 12px;
+  left: 12px;
+}
+
+.personnel-access {
+  right: 12px;
+  bottom: 12px;
+  opacity: 0.7;
+}
+
+/* CARD INFO */
+
+.personnel-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 14px 15px 16px;
+  border-top: 1px solid rgba(130, 255, 150, 0.12);
+}
+
+.personnel-codename {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #4f7455;
+}
+
+.personnel-card-info strong {
+  font-size: 15px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #c4ffca;
+  text-shadow: 0 0 7px rgba(100, 255, 120, 0.35);
+}
+
+.personnel-affiliation {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #638a69;
+}
+
+@media (max-width: 700px) {
+  .personnel-card-info strong {
+    font-size: 12px;
+  }
+}
