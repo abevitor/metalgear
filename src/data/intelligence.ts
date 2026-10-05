@@ -5,12 +5,12 @@ export interface intelligenceRecord {
    classification: 'OMEGA' | 'ALPHA'| 'BRAVO'
    subject: string
    date: string 
-   status: 'ACTIVE' |'ARCHIVED' | 'CLASSIFED'
+   status: 'ACTIVE' | 'ARCHIVED' | 'CLASSIFIED'
    summary: string
    document: string
 }
 
-export const intelligenceRecords: IntelligenceRecord[] = [
+export const intelligenceRecords: intelligenceRecord[] = [
     {
     id: 'INTEL-001',
     title: 'PROJECT METAL GEAR',
