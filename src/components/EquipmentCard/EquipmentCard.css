@@ -64,7 +64,7 @@
 }
 
 .equipment-card-id {
-  font-size: 9px;
+  font-size: 20px;
 
   letter-spacing: 2px;
 
@@ -102,7 +102,7 @@
 }
 
 .equipment-status-text {
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 1.5px;
 }
@@ -169,7 +169,7 @@
 }
 
 .equipment-card-category {
-  font-size: 8px;
+  font-size: 12px;
 
   letter-spacing: 2px;
 
@@ -190,7 +190,7 @@
 }
 
 .equipment-card-operator {
-  font-size: 8px;
+  font-size: 12px;
 
   letter-spacing: 1.2px;
 
@@ -230,7 +230,7 @@
 }
 
 .equipment-card-bottom span {
-  font-size: 7px;
+  font-size: 14px;
 
   letter-spacing: 1.5px;
 
@@ -238,7 +238,7 @@
 }
 
 .equipment-card-bottom strong {
-  font-size: 9px;
+  font-size: 12px;
 
   font-weight: normal;
 
@@ -264,7 +264,7 @@
   border-top:
     1px solid rgba(130, 255, 150, 0.08);
 
-  font-size: 8px;
+  font-size: 12px;
 
   letter-spacing: 1.5px;
 

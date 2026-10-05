@@ -502,7 +502,7 @@
 }
 
 .equipment-modal-header span {
-  font-size: 9px;
+  font-size: 21px;
 
   letter-spacing: 2px;
 
@@ -535,7 +535,7 @@
 }
 
 .equipment-modal-header > div:last-child strong {
-  font-size: 11px;
+  font-size: 19px;
 
   font-weight: normal;
 
@@ -576,7 +576,7 @@
 }
 
 .equipment-modal-status span {
-  font-size: 8px;
+  font-size: 20px;
 
   letter-spacing: 2px;
 
@@ -584,7 +584,7 @@
 }
 
 .equipment-modal-status strong {
-  font-size: 11px;
+  font-size: 15px;
 
   font-weight: normal;
 
@@ -628,7 +628,7 @@
 }
 
 .equipment-modal-operative span {
-  font-size: 8px;
+  font-size: 17px;
 
   letter-spacing: 2px;
 
@@ -636,7 +636,7 @@
 }
 
 .equipment-modal-operative strong {
-  font-size: 11px;
+  font-size: 13px;
 
   font-weight: normal;
 
@@ -663,7 +663,7 @@
 
   margin-bottom: 11px;
 
-  font-size: 8px;
+  font-size: 18px;
 
   letter-spacing: 2px;
 
@@ -671,7 +671,7 @@
 }
 
 .equipment-modal-section p {
-  font-size: 12px;
+  font-size: 15px;
 
   line-height: 1.8;
 
@@ -710,7 +710,7 @@
 }
 
 .equipment-specifications-header span {
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 2px;
 
@@ -720,7 +720,7 @@
 .equipment-modal-specifications p {
   margin-top: 6px;
 
-  font-size: 9px;
+  font-size: 14px;
 
   letter-spacing: 1px;
 
@@ -746,7 +746,7 @@
 .equipment-modal-terminal p {
   margin-top: 6px;
 
-  font-size: 9px;
+  font-size: 14px;
 
   letter-spacing: 1px;
 
@@ -771,7 +771,7 @@
   border-top:
     1px solid rgba(130, 255, 150, 0.1);
 
-  font-size: 8px;
+  font-size: 14px;
 
   letter-spacing: 1.5px;
 
