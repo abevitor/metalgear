@@ -12,7 +12,7 @@ export function PersonnelCard({
 }: PersonnelCardProps){
     return ( 
         <button
-        className="personel-card"
+        className="personnel-card"
         onClick={onClick}
         type="button"
         >

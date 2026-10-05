@@ -222,7 +222,8 @@
 }
 
 .personnel-card:hover .personnel-target {
-  border-color: rgba(150, 255, 165, 0.25);
+  border-color:
+    rgba(150, 255, 165, 0.25);
 }
 
 .personnel-target::before,
@@ -297,7 +298,8 @@
 
   padding: 14px 15px 16px;
 
-  border-top: 1px solid rgba(130, 255, 150, 0.12);
+  border-top:
+    1px solid rgba(130, 255, 150, 0.12);
 
   box-sizing: border-box;
 }

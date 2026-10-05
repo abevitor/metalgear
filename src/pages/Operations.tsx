@@ -8,7 +8,7 @@ import {
 
 import { OperationCard } from "../components/OperationCard/OperationCard";
 
-import './Operation.css'
+import './Operations.css'
 
 type OperationFilter = 
  | 'ALL'
