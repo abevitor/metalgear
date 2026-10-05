@@ -60,7 +60,7 @@ export function OperationCard({
             </div>
 
             <div className="operation-card-corner operation-card-corner-t1"/>
-            <div className="operation-card-corner operation-card-corner-br"/>
+            <div className="operation-card-corner operation"/>
         </button>
     )
 }
