@@ -1,0 +1,311 @@
+.equipment-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 285px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  border: 1px solid rgba(130, 255, 150, 0.17);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(70, 255, 100, 0.025),
+      rgba(0, 0, 0, 0.35)
+    );
+
+  color: inherit;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.equipment-card:hover {
+  border-color: rgba(145, 255, 160, 0.5);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(70, 255, 100, 0.05),
+      rgba(0, 0, 0, 0.4)
+    );
+
+  box-shadow:
+    0 0 18px rgba(80, 255, 100, 0.055),
+    inset 0 0 25px rgba(80, 255, 100, 0.03);
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.equipment-card-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 13px 15px;
+
+  border-bottom:
+    1px solid rgba(130, 255, 150, 0.1);
+}
+
+.equipment-card-id {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #52785a;
+}
+
+.equipment-card-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.equipment-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+}
+
+.equipment-status-dot-active {
+  background: #8cff9a;
+
+  box-shadow:
+    0 0 8px #8cff9a;
+}
+
+.equipment-status-dot-standby {
+  background: #829986;
+}
+
+.equipment-status-dot-classified {
+  background: #a0aaa1;
+}
+
+.equipment-status-text {
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+}
+
+.equipment-status-text-active {
+  color: #98ffa0;
+}
+
+.equipment-status-text-standby {
+  color: #829986;
+}
+
+.equipment-status-text-classified {
+  color: #a0aaa1;
+}
+
+/* =========================
+   ICON
+   ========================= */
+
+.equipment-card-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+
+  margin: 20px 17px 5px;
+
+  border:
+    1px solid rgba(130, 255, 150, 0.11);
+
+  color: #719a77;
+
+  background:
+    rgba(80, 255, 100, 0.018);
+
+  transition:
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.equipment-card:hover .equipment-card-icon {
+  color: #aaffb0;
+
+  box-shadow:
+    inset 0 0 15px rgba(80, 255, 100, 0.04);
+}
+
+/* =========================
+   CONTENT
+   ========================= */
+
+.equipment-card-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding: 0 17px;
+}
+
+.equipment-card-category {
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  color: #4d7053;
+}
+
+.equipment-card-content strong {
+  font-size: 18px;
+
+  font-weight: normal;
+
+  letter-spacing: 1.8px;
+
+  color: #caffd0;
+
+  text-shadow:
+    0 0 8px rgba(100, 255, 120, 0.3);
+}
+
+.equipment-card-operator {
+  font-size: 8px;
+
+  letter-spacing: 1.2px;
+
+  color: #5f8766;
+}
+
+/* =========================
+   BOTTOM DATA
+   ========================= */
+
+.equipment-card-bottom {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 18px;
+
+  padding: 0 17px;
+}
+
+.equipment-card-bottom > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 9px;
+
+  border:
+    1px solid rgba(130, 255, 150, 0.08);
+
+  background:
+    rgba(80, 255, 100, 0.015);
+}
+
+.equipment-card-bottom span {
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+
+  color: #496c50;
+}
+
+.equipment-card-bottom strong {
+  font-size: 9px;
+
+  font-weight: normal;
+
+  letter-spacing: 1px;
+
+  color: #82a988;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.equipment-card-footer {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: auto;
+
+  padding: 13px 17px;
+
+  border-top:
+    1px solid rgba(130, 255, 150, 0.08);
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+
+  color: #4e7255;
+}
+
+.equipment-card:hover .equipment-card-footer {
+  color: #94bf9a;
+}
+
+/* =========================
+   CORNERS
+   ========================= */
+
+.equipment-card-corner {
+  position: absolute;
+
+  width: 11px;
+  height: 11px;
+
+  pointer-events: none;
+}
+
+.equipment-card-corner-tl {
+  top: -1px;
+  left: -1px;
+
+  border-top:
+    2px solid rgba(150, 255, 165, 0.5);
+
+  border-left:
+    2px solid rgba(150, 255, 165, 0.5);
+}
+
+.equipment-card-corner-br {
+  right: -1px;
+  bottom: -1px;
+
+  border-right:
+    2px solid rgba(150, 255, 165, 0.3);
+
+  border-bottom:
+    2px solid rgba(150, 255, 165, 0.3);
+}
