@@ -1,0 +1,250 @@
+.intelligence-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 265px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  border: 1px solid rgba(130, 255, 150, 0.16);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(70, 255, 100, 0.025),
+      rgba(0, 0, 0, 0.35)
+    );
+
+  color: inherit;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.intelligence-card:hover {
+  border-color: rgba(145, 255, 160, 0.5);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(70, 255, 100, 0.05),
+      rgba(0, 0, 0, 0.4)
+    );
+
+  box-shadow:
+    0 0 18px rgba(80, 255, 100, 0.05),
+    inset 0 0 25px rgba(80, 255, 100, 0.03);
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.intelligence-card-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 13px 15px;
+
+  border-bottom:
+    1px solid rgba(130, 255, 150, 0.1);
+}
+
+.intelligence-card-header > span:first-child {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #54785a;
+}
+
+.intelligence-status {
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+}
+
+.intelligence-status-active {
+  color: #97ffa0;
+
+  text-shadow:
+    0 0 7px rgba(100, 255, 120, 0.45);
+}
+
+.intelligence-status-archived {
+  color: #738878;
+}
+
+.intelligence-status-classified {
+  color: #a0aaa1;
+}
+
+/* =========================
+   BODY
+   ========================= */
+
+.intelligence-card-body {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  padding: 20px 17px 15px;
+}
+
+.intelligence-card-label {
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  color: #4b6e51;
+}
+
+.intelligence-card-body strong {
+  font-size: 17px;
+
+  font-weight: normal;
+
+  letter-spacing: 1.8px;
+
+  color: #c4ffca;
+
+  text-shadow:
+    0 0 8px rgba(100, 255, 120, 0.3);
+}
+
+.intelligence-card-subject {
+  font-size: 9px;
+
+  letter-spacing: 1.3px;
+
+  color: #668d6c;
+}
+
+/* =========================
+   META
+   ========================= */
+
+.intelligence-card-meta {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+
+  padding: 0 17px;
+}
+
+.intelligence-card-meta > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 9px;
+
+  border:
+    1px solid rgba(130, 255, 150, 0.08);
+
+  background:
+    rgba(80, 255, 100, 0.015);
+}
+
+.intelligence-card-meta span {
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+
+  color: #486b4e;
+}
+
+.intelligence-card-meta strong {
+  font-size: 9px;
+
+  font-weight: normal;
+
+  letter-spacing: 1px;
+
+  color: #81aa87;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.intelligence-card-footer {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: auto;
+
+  padding:
+    13px
+    17px;
+
+  border-top:
+    1px solid rgba(130, 255, 150, 0.08);
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+
+  color: #4c7153;
+}
+
+.intelligence-card:hover .intelligence-card-footer {
+  color: #91bc97;
+}
+
+/* =========================
+   CORNERS
+   ========================= */
+
+.intelligence-card-corner {
+  position: absolute;
+
+  width: 11px;
+  height: 11px;
+
+  pointer-events: none;
+}
+
+.intelligence-card-corner-tl {
+  top: -1px;
+  left: -1px;
+
+  border-top:
+    2px solid rgba(150, 255, 165, 0.5);
+
+  border-left:
+    2px solid rgba(150, 255, 165, 0.5);
+}
+
+.intelligence-card-corner-br {
+  right: -1px;
+  bottom: -1px;
+
+  border-right:
+    2px solid rgba(150, 255, 165, 0.3);
+
+  border-bottom:
+    2px solid rgba(150, 255, 165, 0.3);
+}
