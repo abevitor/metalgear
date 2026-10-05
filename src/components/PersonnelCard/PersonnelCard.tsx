@@ -1,4 +1,4 @@
-import type { Character } from '../../data/Personnel'
+import type { Character } from '../../data/personnel'
 import './PersonnelCard.css'
 
 interface PersonnelCardProps {

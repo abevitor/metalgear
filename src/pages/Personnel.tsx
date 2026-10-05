@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 
 import { PersonnelCard } from '../components/PersonnelCard/PersonnelCard'
-import { characters, type Character } from '../data/Personnel'
+import { characters, type Character } from '../data/personnel'
 
 import './Personnel.css'
 
