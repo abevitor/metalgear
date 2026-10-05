@@ -47,7 +47,7 @@
 .intelligence-heading p {
   margin-top: 9px;
 
-  font-size: 10px;
+  font-size: 13px;
 
   letter-spacing: 1.5px;
 
@@ -65,7 +65,7 @@
 }
 
 .intelligence-counter span {
-  font-size: 10px;
+  font-size: 13px;
 
   letter-spacing: 2px;
 
@@ -204,7 +204,7 @@
 }
 
 .intelligence-search-count span {
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 2px;
 
@@ -243,11 +243,11 @@
 }
 
 .intelligence-filters > span {
-  font-size: 8px;
+  font-size: 18px;
 
   letter-spacing: 2px;
 
-  color: #4d7053;
+  color: #8fc496;
 }
 
 .intelligence-filters > div {
@@ -265,7 +265,7 @@
 
   color: #567b5c;
 
-  font-size: 8px;
+  font-size: 13px;
 
   letter-spacing: 1.4px;
 
@@ -327,7 +327,7 @@
 }
 
 .intelligence-empty span {
-  font-size: 10px;
+  font-size: 15px;
 
   letter-spacing: 2px;
 
@@ -337,7 +337,7 @@
 .intelligence-empty strong {
   margin-top: 8px;
 
-  font-size: 9px;
+  font-size: 15px;
 
   font-weight: normal;
 
@@ -504,7 +504,7 @@
 }
 
 .intelligence-modal-header span {
-  font-size: 9px;
+  font-size: 17px;
 
   letter-spacing: 2px;
 
@@ -580,7 +580,7 @@
 .intelligence-modal-info span,
 .intelligence-modal-subject span,
 .intelligence-modal-section > span {
-  font-size: 8px;
+  font-size: 20px;
 
   letter-spacing: 2px;
 
@@ -588,7 +588,7 @@
 }
 
 .intelligence-modal-info strong {
-  font-size: 10px;
+  font-size: 14px;
 
   font-weight: normal;
 
@@ -617,7 +617,7 @@
 }
 
 .intelligence-modal-subject strong {
-  font-size: 12px;
+  font-size: 15px;
 
   font-weight: normal;
 
@@ -646,7 +646,7 @@
 }
 
 .intelligence-modal-section p {
-  font-size: 12px;
+  font-size: 13px;
 
   line-height: 1.8;
 
@@ -685,7 +685,7 @@
 }
 
 .intelligence-document-header span {
-  font-size: 8px;
+  font-size: 17px;
 
   letter-spacing: 2px;
 
@@ -695,7 +695,7 @@
 .intelligence-modal-document p {
   margin-top: 8px;
 
-  font-size: 10px;
+  font-size: 13px;
 
   line-height: 1.8;
 
@@ -725,7 +725,7 @@
   border-top:
     1px solid rgba(130, 255, 150, 0.1);
 
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 1.5px;
 
