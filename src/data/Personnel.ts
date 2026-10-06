@@ -325,7 +325,7 @@ export const characters: Character[] = [
 
   {
     id: 'PF-025',
-    name: 'AMANDA VALENCIANO LIBRE',
+    name: 'AMANDA VALENCIANO ',
     codename: 'AMANDA',
     affiliation: 'FSLN',
     status: 'ACTIVE',
