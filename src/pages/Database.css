@@ -24,7 +24,7 @@
 
   margin-bottom: 9px;
 
-  font-size: 15px;
+  font-size: 21px;
 
   letter-spacing: 3px;
 
@@ -47,7 +47,7 @@
 .database-heading p {
   margin-top: 9px;
 
-  font-size: 10px;
+  font-size: 15px;
 
   letter-spacing: 1.5px;
 
@@ -73,7 +73,7 @@
 }
 
 .database-heading-status span {
-  font-size: 8px;
+  font-size: 12px;
 
   letter-spacing: 1.5px;
 
@@ -81,7 +81,7 @@
 }
 
 .database-heading-status strong {
-  font-size: 10px;
+  font-size: 14px;
 
   font-weight: normal;
 
@@ -116,7 +116,7 @@
 .database-divider small {
   white-space: nowrap;
 
-  font-size: 20px;
+  font-size: 22px;
 
   letter-spacing: 2px;
 
@@ -179,7 +179,7 @@
 
   color: #baffc2;
 
-  font-size: 11px;
+  font-size: 15px;
 
   letter-spacing: 1.2px;
 }
@@ -212,7 +212,7 @@
 }
 
 .database-result-counter span {
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 2px;
 
@@ -220,7 +220,7 @@
 }
 
 .database-result-counter strong {
-  font-size: 18px;
+  font-size: 20px;
 
   font-weight: normal;
 
@@ -251,7 +251,7 @@
 }
 
 .database-filters > span {
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 2px;
 
@@ -273,7 +273,7 @@
 
   color: #567b5c;
 
-  font-size: 8px;
+  font-size: 13px;
 
   letter-spacing: 1.4px;
 
@@ -342,7 +342,7 @@
 }
 
 .database-table-header span {
-  font-size: 8px;
+  font-size: 14px;
 
   letter-spacing: 1.8px;
 
@@ -545,7 +545,7 @@
 }
 
 .database-modal-header span {
-  font-size: 9px;
+  font-size: 13px;
 
   letter-spacing: 2px;
 
@@ -578,7 +578,7 @@
 }
 
 .database-modal-header > div:last-child strong {
-  font-size: 11px;
+  font-size: 15px;
 
   font-weight: normal;
 
@@ -619,7 +619,7 @@
 }
 
 .database-modal-meta span {
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 2px;
 
@@ -627,7 +627,7 @@
 }
 
 .database-modal-meta strong {
-  font-size: 10px;
+  font-size: 13px;
 
   font-weight: normal;
 
@@ -669,7 +669,7 @@
 
   margin-bottom: 11px;
 
-  font-size: 8px;
+  font-size: 17px;
 
   letter-spacing: 2px;
 
@@ -677,7 +677,7 @@
 }
 
 .database-modal-summary p {
-  font-size: 12px;
+  font-size: 14px;
 
   line-height: 1.8;
 
@@ -716,7 +716,7 @@
 }
 
 .database-modal-data-header span {
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 2px;
 
@@ -726,7 +726,7 @@
 .database-modal-data p {
   margin-top: 7px;
 
-  font-size: 9px;
+  font-size: 13px;
 
   letter-spacing: 1px;
 
@@ -752,7 +752,7 @@
 .database-modal-terminal p {
   margin-top: 6px;
 
-  font-size: 9px;
+  font-size: 13px;
 
   letter-spacing: 1px;
 
@@ -777,7 +777,7 @@
   border-top:
     1px solid rgba(130, 255, 150, 0.1);
 
-  font-size: 8px;
+  font-size: 13px;
 
   letter-spacing: 1.5px;
 
