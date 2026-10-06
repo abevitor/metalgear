@@ -1,12 +1,12 @@
 export interface DatabaseRecord {
-    id: string
-    type: 'PERSONNEL' | 'OPERATIONS' | 'EQUIPMENT' | 'LOCATION' 
-    subject: string 
-    status: 'ACTIVE' | 'CLASSIFIED' | 'ARCHIVED'
-    classification: 'OMEGA' | 'ALPHA' | 'BRAVO'
-    date: string
-    summary: string
-    data: string[]
+  id: string
+  type: 'PERSONNEL' | 'OPERATIONS' | 'EQUIPMENT' | 'LOCATION'
+  subject: string
+  status: 'ACTIVE' | 'CLASSIFIED' | 'ARCHIVED'
+  classification: 'OMEGA' | 'ALPHA' | 'BRAVO'
+  date: string
+  summary: string
+  data: string[]
 }
 
 export const databaseRecords: DatabaseRecord[] = [
@@ -18,13 +18,13 @@ export const databaseRecords: DatabaseRecord[] = [
     classification: 'OMEGA',
     date: 'CLASSIFIED',
     summary:
-      'Personnel record concerning a FOXHOUND infiltration specialist with extensive field experience.',
+      'Elite infiltration specialist and former FOXHOUND operative.',
     data: [
       'CODE NAME: SNAKE',
       'AFFILIATION: FOXHOUND',
       'SPECIALTY: INFILTRATION',
       'STATUS: ACTIVE',
-      'CLEARANCE: OMEGA',
+      'LEGACY: LES ENFANTS TERRIBLES',
     ],
   },
 
@@ -36,121 +36,373 @@ export const databaseRecords: DatabaseRecord[] = [
     classification: 'OMEGA',
     date: 'CLASSIFIED',
     summary:
-      'Historical personnel record concerning one of the most influential soldiers in modern military history.',
+      'Legendary soldier and founder of multiple private military organizations.',
     data: [
       'CODE NAME: NAKED SNAKE',
-      'AFFILIATION: FOX',
+      'AFFILIATION: FOX / MSF',
       'SPECIALTY: SPECIAL OPERATIONS',
-      'STATUS: CLASSIFIED',
-      'CLEARANCE: OMEGA',
+      'TITLE: BIG BOSS',
+      'STATUS: HISTORICAL',
     ],
   },
 
   {
     id: 'DB-003',
-    type: 'OPERATIONS',
-    subject: 'SHADOW MOSES',
-    status: 'CLASSIFIED',
+    type: 'PERSONNEL',
+    subject: 'VENOM SNAKE',
+    status: 'ACTIVE',
     classification: 'OMEGA',
-    date: '2005',
+    date: '1984',
     summary:
-      'Database record related to the Shadow Moses incident and the tactical operations conducted on the island.',
+      'Commander of Diamond Dogs during the events of The Phantom Pain.',
     data: [
-      'OPERATION: SHADOW MOSES RECON',
-      'LOCATION: SHADOW MOSES',
-      'THREAT LEVEL: OMEGA',
+      'CODE NAME: VENOM SNAKE',
+      'AFFILIATION: DIAMOND DOGS',
+      'SPECIALTY: COMMAND',
+      'THEATER: AFGHANISTAN / AFRICA',
       'STATUS: CLASSIFIED',
-      'COMMAND: FOXHOUND',
     ],
   },
 
   {
     id: 'DB-004',
-    type: 'OPERATIONS',
-    subject: 'OPERATION INTRUDE',
-    status: 'ACTIVE',
-    classification: 'ALPHA',
-    date: 'CLASSIFIED',
+    type: 'PERSONNEL',
+    subject: 'LIQUID SNAKE',
+    status: 'CLASSIFIED',
+    classification: 'OMEGA',
+    date: '2005',
     summary:
-      'Active tactical infiltration operation involving covert reconnaissance and neutralization of strategic threats.',
+      'FOXHOUND commander responsible for the Shadow Moses uprising.',
     data: [
-      'OPERATION ID: OP-001',
-      'COMMANDER: SOLID SNAKE',
-      'OBJECTIVE: INFILTRATION',
-      'STATUS: ACTIVE',
-      'PRIORITY: ALPHA',
+      'CODE NAME: LIQUID',
+      'AFFILIATION: FOXHOUND',
+      'SPECIALTY: COMMAND',
+      'THEATER: SHADOW MOSES',
+      'STATUS: DECEASED',
     ],
   },
 
   {
     id: 'DB-005',
-    type: 'EQUIPMENT',
-    subject: 'SOCOM',
+    type: 'PERSONNEL',
+    subject: 'RAIDEN',
     status: 'ACTIVE',
-    classification: 'ALPHA',
+    classification: 'OMEGA',
     date: 'CLASSIFIED',
     summary:
-      'Compact tactical sidearm designated for covert field operations.',
+      'Former child soldier who became a highly advanced cyborg operative.',
     data: [
-      'TYPE: HANDGUN',
-      'ROLE: SIDEARM',
-      'OPERATOR: FOXHOUND',
-      'STATUS: OPERATIONAL',
-      'ACCESS: ALPHA',
+      'CODE NAME: RAIDEN',
+      'AFFILIATION: FOXHOUND / PMC',
+      'SPECIALTY: CQC',
+      'WEAPON: HF BLADE',
+      'STATUS: ACTIVE',
     ],
   },
 
   {
     id: 'DB-006',
-    type: 'EQUIPMENT',
-    subject: 'SOLITON RADAR',
-    status: 'ACTIVE',
+    type: 'PERSONNEL',
+    subject: 'REVOLVER OCELOT',
+    status: 'CLASSIFIED',
     classification: 'OMEGA',
     date: 'CLASSIFIED',
     summary:
-      'Portable tactical sensor system used for battlefield reconnaissance and threat detection.',
+      'Long-term intelligence operative connected to nearly every major faction.',
     data: [
-      'TYPE: SENSOR',
-      'ROLE: RECONNAISSANCE',
-      'RANGE: CLASSIFIED',
-      'STATUS: OPERATIONAL',
-      'ACCESS: OMEGA',
+      'CODE NAME: OCELOT',
+      'AFFILIATIONS: GRU / FOXHOUND / PATRIOTS',
+      'SPECIALTY: ESPIONAGE',
+      'ROLE: MANIPULATION',
+      'STATUS: DECEASED',
     ],
   },
 
   {
     id: 'DB-007',
-    type: 'LOCATION',
-    subject: 'OUTER HEAVEN',
-    status: 'CLASSIFIED',
-    classification: 'ALPHA',
-    date: 'CLASSIFIED',
+    type: 'PERSONNEL',
+    subject: 'THE BOSS',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '1964',
     summary:
-      'Strategic military territory operated independently from conventional state structures.',
+      'Legendary soldier and mentor of Naked Snake.',
     data: [
-      'TYPE: MILITARY TERRITORY',
-      'THREAT LEVEL: ALPHA',
-      'REGION: CLASSIFIED',
-      'STATUS: CLASSIFIED',
-      'ACCESS: ALPHA',
+      'CODE NAME: THE BOSS',
+      'ALIAS: THE JOY',
+      'SPECIALTY: CQC',
+      'UNIT: COBRA UNIT',
+      'STATUS: DECEASED',
     ],
   },
 
   {
     id: 'DB-008',
+    type: 'PERSONNEL',
+    subject: 'OTACON',
+    status: 'ACTIVE',
+    classification: 'ALPHA',
+    date: 'CLASSIFIED',
+    summary:
+      'Engineering specialist and ally of Solid Snake.',
+    data: [
+      'NAME: HAL EMMERICH',
+      'CODE NAME: OTACON',
+      'SPECIALTY: ENGINEERING',
+      'PROJECT: METAL GEAR REX',
+      'STATUS: ACTIVE',
+    ],
+  },
+
+  {
+    id: 'DB-009',
+    type: 'OPERATIONS',
+    subject: 'OPERATION SNAKE EATER',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '1964',
+    summary:
+      'Critical mission that led to the birth of the Big Boss legend.',
+    data: [
+      'COMMANDER: NAKED SNAKE',
+      'LOCATION: TSELINoyarsk',
+      'OBJECTIVE: SOKOLOV / SHAGOHOD',
+      'ENEMY: VOLGIN',
+      'FINAL TARGET: THE BOSS',
+    ],
+  },
+
+  {
+    id: 'DB-010',
+    type: 'OPERATIONS',
+    subject: 'SHADOW MOSES INCIDENT',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '2005',
+    summary:
+      'FOXHOUND uprising involving Metal Gear REX.',
+    data: [
+      'LOCATION: SHADOW MOSES',
+      'COMMANDER: LIQUID SNAKE',
+      'OPERATIVE: SOLID SNAKE',
+      'WEAPON: METAL GEAR REX',
+      'OUTCOME: FOXHOUND DEFEATED',
+    ],
+  },
+
+  {
+    id: 'DB-011',
+    type: 'OPERATIONS',
+    subject: 'BIG SHELL INCIDENT',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '2009',
+    summary:
+      'Terrorist occupation used as a simulation for the S3 Plan.',
+    data: [
+      'LOCATION: BIG SHELL',
+      'OPERATIVE: RAIDEN',
+      'ANTAGONIST: SOLIDUS SNAKE',
+      'SYSTEM: ARSENAL GEAR',
+      'PROGRAM: S3',
+    ],
+  },
+
+  {
+    id: 'DB-012',
+    type: 'OPERATIONS',
+    subject: 'GROUND ZEROES',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '1975',
+    summary:
+      'Infiltration of Camp Omega to rescue Paz and Chico.',
+    data: [
+      'COMMANDER: BIG BOSS',
+      'LOCATION: CAMP OMEGA',
+      'OBJECTIVE: RESCUE',
+      'TARGETS: PAZ / CHICO',
+      'OUTCOME: MOTHER BASE DESTROYED',
+    ],
+  },
+
+  {
+    id: 'DB-013',
+    type: 'OPERATIONS',
+    subject: 'THE PHANTOM PAIN',
+    status: 'CLASSIFIED',
+    classification: 'OMEGA',
+    date: '1984',
+    summary:
+      'Diamond Dogs campaign against Cipher and Skull Face.',
+    data: [
+      'COMMANDER: VENOM SNAKE',
+      'AFFILIATION: DIAMOND DOGS',
+      'ENEMY: XOF',
+      'PRIMARY TARGET: SKULL FACE',
+      'THEATER: AFGHANISTAN / AFRICA',
+    ],
+  },
+
+  {
+    id: 'DB-014',
+    type: 'OPERATIONS',
+    subject: 'LIQUID OCELOT UPRISING',
+    status: 'CLASSIFIED',
+    classification: 'OMEGA',
+    date: '2014',
+    summary:
+      'Final large-scale conflict involving Solid Snake and Liquid Ocelot.',
+    data: [
+      'LOCATION: GLOBAL',
+      'COMMANDER: LIQUID OCELOT',
+      'OPERATIVE: SOLID SNAKE',
+      'TARGET: PATRIOTS SYSTEM',
+      'OUTCOME: SYSTEM NEUTRALIZED',
+    ],
+  },
+
+  {
+    id: 'DB-015',
+    type: 'EQUIPMENT',
+    subject: 'METAL GEAR REX',
+    status: 'CLASSIFIED',
+    classification: 'OMEGA',
+    date: '2005',
+    summary:
+      'Nuclear-capable bipedal weapons system.',
+    data: [
+      'TYPE: METAL GEAR',
+      'LOCATION: SHADOW MOSES',
+      'DESIGNER: OTACON',
+      'ROLE: NUCLEAR DETERRENCE',
+      'STATUS: DESTROYED',
+    ],
+  },
+
+  {
+    id: 'DB-016',
+    type: 'EQUIPMENT',
+    subject: 'METAL GEAR RAY',
+    status: 'CLASSIFIED',
+    classification: 'OMEGA',
+    date: '2007',
+    summary:
+      'Anti-Metal Gear platform.',
+    data: [
+      'TYPE: METAL GEAR',
+      'ROLE: ANTI-METAL GEAR',
+      'ERA: MGS2',
+      'OPERATOR: PATRIOTS',
+      'STATUS: CLASSIFIED',
+    ],
+  },
+
+  {
+    id: 'DB-017',
+    type: 'EQUIPMENT',
+    subject: 'PEACE WALKER',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '1974',
+    summary:
+      'AI-controlled strategic weapons platform.',
+    data: [
+      'TYPE: AI WEAPON',
+      'PROJECT: PEACE WALKER',
+      'THEATER: COSTA RICA',
+      'RELATED: STRANGELOVE',
+      'STATUS: DESTROYED',
+    ],
+  },
+
+  {
+    id: 'DB-018',
+    type: 'EQUIPMENT',
+    subject: 'SAHELANTHROPUS',
+    status: 'CLASSIFIED',
+    classification: 'OMEGA',
+    date: '1984',
+    summary:
+      'Advanced Metal Gear developed by XOF.',
+    data: [
+      'TYPE: METAL GEAR',
+      'DEVELOPER: HUEY EMMERICH',
+      'FACTION: XOF',
+      'THEATER: AFGHANISTAN',
+      'STATUS: DESTROYED',
+    ],
+  },
+
+  {
+    id: 'DB-019',
+    type: 'LOCATION',
+    subject: 'OUTER HEAVEN',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '1995',
+    summary:
+      'Military fortress associated with Big Boss.',
+    data: [
+      'TYPE: MILITARY FORTRESS',
+      'REGION: SOUTH AFRICA',
+      'ASSOCIATED: BIG BOSS',
+      'THREAT: METAL GEAR TX-55',
+      'STATUS: DESTROYED',
+    ],
+  },
+
+  {
+    id: 'DB-020',
     type: 'LOCATION',
     subject: 'ZANZIBAR LAND',
     status: 'ARCHIVED',
-    classification: 'BRAVO',
+    classification: 'OMEGA',
     date: '1999',
     summary:
-      'Archived strategic location associated with military operations and advanced weapons research.',
+      'Military territory involved in a major confrontation with Solid Snake.',
     data: [
-      'TYPE: MILITARY TERRITORY',
+      'TYPE: MILITARY NATION',
       'REGION: CENTRAL ASIA',
-      'STATUS: ARCHIVED',
-      'THREAT LEVEL: BRAVO',
-      'ACCESS: RESTRICTED',
+      'OPERATOR: BIG BOSS FACTION',
+      'THREAT: METAL GEAR D',
+      'STATUS: DEFEATED',
+    ],
+  },
+
+  {
+    id: 'DB-021',
+    type: 'LOCATION',
+    subject: 'SHADOW MOSES',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '2005',
+    summary:
+      'Nuclear weapons disposal facility in Alaska.',
+    data: [
+      'TYPE: MILITARY FACILITY',
+      'REGION: ALASKA',
+      'WEAPON: METAL GEAR REX',
+      'FACTION: FOXHOUND',
+      'STATUS: INCIDENT CLOSED',
+    ],
+  },
+
+  {
+    id: 'DB-022',
+    type: 'LOCATION',
+    subject: 'BIG SHELL',
+    status: 'ARCHIVED',
+    classification: 'OMEGA',
+    date: '2009',
+    summary:
+      'Offshore environmental facility concealing Arsenal Gear.',
+    data: [
+      'TYPE: OFFSHORE FACILITY',
+      'REGION: HUDSON BAY',
+      'HIDDEN SYSTEM: ARSENAL GEAR',
+      'EVENT: TERRORIST OCCUPATION',
+      'STATUS: DESTROYED',
     ],
   },
 ]

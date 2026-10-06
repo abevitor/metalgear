@@ -1,18 +1,18 @@
 export interface CodecMessage {
-    time: string
-    sender: string
-    message: string
+  time: string
+  sender: string
+  message: string
 }
 
 export interface CodecContact {
-    id: string 
-    name: string 
-    codename: string
-    role: string
-    frequency: string
-    status: 'ONLINE' | 'STANDBY' | 'OFFLINE'
-    clearance: 'OMEGA' | 'ALPHA' | 'BRAVO'
-    messages: CodecMessage[]
+  id: string
+  name: string
+  codename: string
+  role: string
+  frequency: string
+  status: 'ONLINE' | 'STANDBY' | 'OFFLINE'
+  clearance: 'OMEGA' | 'ALPHA' | 'BRAVO'
+  messages: CodecMessage[]
 }
 
 export const codecContacts: CodecContact[] = [
@@ -29,25 +29,19 @@ export const codecContacts: CodecContact[] = [
         time: '14:31:08',
         sender: 'FOXHOUND',
         message:
-          'Snake, the mission parameters have been updated. Proceed to the designated infiltration point.',
+          'Snake, proceed to the designated infiltration point.',
       },
       {
         time: '14:31:26',
         sender: 'SNAKE',
         message:
-          'Understood. I am moving toward the target area now.',
+          'Understood. Moving toward the target area.',
       },
       {
         time: '14:32:04',
         sender: 'FOXHOUND',
         message:
-          'Keep a low profile. Enemy surveillance is active.',
-      },
-      {
-        time: '14:32:19',
-        sender: 'SNAKE',
-        message:
-          'Copy that. I will maintain radio silence unless necessary.',
+          'Enemy surveillance is active. Maintain caution.',
       },
     ],
   },
@@ -65,26 +59,26 @@ export const codecContacts: CodecContact[] = [
         time: '13:47:10',
         sender: 'FOXHOUND',
         message:
-          'Otacon, status report on the tactical systems.',
+          'Otacon, report tactical system status.',
       },
       {
         time: '13:47:28',
         sender: 'OTACON',
         message:
-          'The systems are online. I am monitoring the network continuously.',
+          'All systems are operating normally.',
       },
       {
         time: '13:48:02',
         sender: 'FOXHOUND',
         message:
-          'Maintain surveillance and report any unusual activity.',
+          'Continue monitoring the network.',
       },
     ],
   },
 
   {
     id: 'COM-003',
-    name: 'COLONEL',
+    name: 'ROY CAMPBELL',
     codename: 'CAMPBELL',
     role: 'MISSION COMMAND',
     frequency: '140.85',
@@ -95,7 +89,7 @@ export const codecContacts: CodecContact[] = [
         time: '12:20:15',
         sender: 'CAMPBELL',
         message:
-          'All units maintain current positions until further orders.',
+          'All units maintain current positions.',
       },
       {
         time: '12:21:03',
@@ -107,7 +101,7 @@ export const codecContacts: CodecContact[] = [
         time: '12:21:47',
         sender: 'CAMPBELL',
         message:
-          'Understood. Keep the channel secure.',
+          'Keep the channel secure.',
       },
     ],
   },
@@ -118,7 +112,7 @@ export const codecContacts: CodecContact[] = [
     codename: 'MEI',
     role: 'TACTICAL SUPPORT',
     frequency: '140.96',
-    status: 'STANDBY',
+    status: 'ONLINE',
     clearance: 'ALPHA',
     messages: [
       {
@@ -131,31 +125,199 @@ export const codecContacts: CodecContact[] = [
         time: '11:05:02',
         sender: 'FOXHOUND',
         message:
-          'Maintain encryption protocols while the operation remains active.',
+          'Maintain encryption protocols.',
       },
     ],
   },
 
   {
     id: 'COM-005',
-    name: 'MILLER',
-    codename: 'MASTER',
+    name: 'KAZUHIRA MILLER',
+    codename: 'KAZ',
     role: 'TACTICAL ADVISOR',
     frequency: '141.22',
-    status: 'STANDBY',
-    clearance: 'BRAVO',
+    status: 'ONLINE',
+    clearance: 'OMEGA',
     messages: [
       {
         time: '10:16:22',
-        sender: 'MILLER',
+        sender: 'KAZ',
         message:
-          'The tactical package has been uploaded to the command database.',
+          'The tactical package has been uploaded.',
       },
       {
         time: '10:17:04',
         sender: 'FOXHOUND',
         message:
           'Package received and verified.',
+      },
+    ],
+  },
+
+  {
+    id: 'COM-006',
+    name: 'NAOMI HUNTER',
+    codename: 'NAOMI',
+    role: 'MEDICAL / GENETICS',
+    frequency: '140.66',
+    status: 'STANDBY',
+    clearance: 'OMEGA',
+    messages: [
+      {
+        time: '09:44:18',
+        sender: 'NAOMI',
+        message:
+          'Medical analysis is complete.',
+      },
+      {
+        time: '09:45:03',
+        sender: 'FOXHOUND',
+        message:
+          'Transmit the report through the secure channel.',
+      },
+    ],
+  },
+
+  {
+    id: 'COM-007',
+    name: 'EVA',
+    codename: 'EVA',
+    role: 'INTELLIGENCE OPERATIVE',
+    frequency: '141.37',
+    status: 'STANDBY',
+    clearance: 'OMEGA',
+    messages: [
+      {
+        time: '08:21:11',
+        sender: 'EVA',
+        message:
+          'Enemy movements detected in the southern sector.',
+      },
+      {
+        time: '08:22:00',
+        sender: 'FOXHOUND',
+        message:
+          'Continue observation.',
+      },
+    ],
+  },
+
+  {
+    id: 'COM-008',
+    name: 'ZERO',
+    codename: 'MAJOR ZERO',
+    role: 'STRATEGIC COMMAND',
+    frequency: '140.20',
+    status: 'OFFLINE',
+    clearance: 'OMEGA',
+    messages: [
+      {
+        time: '07:10:25',
+        sender: 'ZERO',
+        message:
+          'The information network must remain operational.',
+      },
+      {
+        time: '07:11:08',
+        sender: 'FOXHOUND',
+        message:
+          'Connection terminated.',
+      },
+    ],
+  },
+
+  {
+    id: 'COM-009',
+    name: 'PARA-MEDIC',
+    codename: 'PARA-MEDIC',
+    role: 'MEDICAL SUPPORT',
+    frequency: '140.76',
+    status: 'STANDBY',
+    clearance: 'ALPHA',
+    messages: [
+      {
+        time: '06:48:11',
+        sender: 'PARA-MEDIC',
+        message:
+          'Medical data is ready for analysis.',
+      },
+      {
+        time: '06:49:02',
+        sender: 'FOXHOUND',
+        message:
+          'Data received.',
+      },
+    ],
+  },
+
+  {
+    id: 'COM-010',
+    name: 'SIGINT',
+    codename: 'SIGINT',
+    role: 'TECHNICAL INTELLIGENCE',
+    frequency: '140.74',
+    status: 'OFFLINE',
+    clearance: 'OMEGA',
+    messages: [
+      {
+        time: '05:21:08',
+        sender: 'SIGINT',
+        message:
+          'Enemy communication protocols have been intercepted.',
+      },
+      {
+        time: '05:22:14',
+        sender: 'FOXHOUND',
+        message:
+          'Archive the transmission.',
+      },
+    ],
+  },
+
+  {
+    id: 'COM-011',
+    name: 'ROSEMARY',
+    codename: 'ROSE',
+    role: 'DATA / PSYCHOLOGICAL SUPPORT',
+    frequency: '140.95',
+    status: 'STANDBY',
+    clearance: 'ALPHA',
+    messages: [
+      {
+        time: '04:12:18',
+        sender: 'ROSE',
+        message:
+          'Your psychological profile has been updated.',
+      },
+      {
+        time: '04:13:05',
+        sender: 'RAIDEN',
+        message:
+          'Understood.',
+      },
+    ],
+  },
+
+  {
+    id: 'COM-012',
+    name: 'RAIDEN',
+    codename: 'RAIDEN',
+    role: 'SPECIAL OPERATIONS',
+    frequency: '141.44',
+    status: 'ONLINE',
+    clearance: 'OMEGA',
+    messages: [
+      {
+        time: '03:55:18',
+        sender: 'RAIDEN',
+        message:
+          'Target location confirmed.',
+      },
+      {
+        time: '03:56:02',
+        sender: 'FOXHOUND',
+        message:
+          'Proceed with caution.',
       },
     ],
   },

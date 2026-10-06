@@ -40,12 +40,6 @@ const menuItems = [
     icon: Package,
     },
     {
-      label: 'DATABASE',
-      path: '/database',
-      icon: Database
-
-    },
-    {
     label: 'CODEC',
     path: '/codec',
     icon: MessageSquare,

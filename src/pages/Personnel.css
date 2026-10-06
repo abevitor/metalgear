@@ -10,18 +10,14 @@
 
 .personnel-heading {
   display: flex;
-
   justify-content: space-between;
   align-items: flex-end;
-
   gap: 20px;
-
   padding: 8px 0 24px;
 }
 
 .personnel-heading > div:first-child > span {
   display: block;
-
   margin-bottom: 9px;
 
   font-size: 15px;
@@ -32,9 +28,7 @@
 
 .personnel-heading h2 {
   font-size: 34px;
-
   font-weight: normal;
-
   letter-spacing: 6px;
 
   color: #caffd0;
@@ -47,7 +41,6 @@
   margin-top: 9px;
 
   font-size: 10px;
-
   letter-spacing: 1.5px;
 
   color: #527357;
@@ -55,17 +48,13 @@
 
 .personnel-counter {
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-end;
-
   gap: 5px;
 }
 
 .personnel-counter span {
   font-size: 15px;
-
   letter-spacing: 2px;
 
   color: #496d50;
@@ -73,7 +62,6 @@
 
 .personnel-counter strong {
   font-size: 28px;
-
   font-weight: normal;
 
   color: #99d69f;
@@ -88,9 +76,7 @@
 
 .personnel-divider {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
 
   margin-bottom: 18px;
@@ -98,41 +84,41 @@
 
 .personnel-divider span {
   height: 1px;
-
   flex: 1;
 
-  background:
-    rgba(130, 255, 150, 0.15);
+  background: rgba(130, 255, 150, 0.15);
 }
 
 .personnel-divider small {
   white-space: nowrap;
 
   font-size: 20px;
-
   letter-spacing: 2px;
 
   color: #4e7255;
 }
 
 /* =========================
-   PERSONNEL CARDS
+   PERSONNEL GRID
    ========================= */
 
 .personnel-grid {
-  width: 100%;
+  width: calc((238px * 4) + (18px * 3));
+  max-width: 100%;
+
+  margin: 0 auto;
 
   display: flex;
-
   flex-wrap: wrap;
 
   justify-content: center;
-
   align-items: flex-start;
 
   gap: 18px;
 
   padding: 10px 0 30px;
+
+  box-sizing: border-box;
 }
 
 /* =========================
@@ -141,26 +127,21 @@
 
 .personnel-modal-overlay {
   position: fixed;
-
   inset: 0;
 
   z-index: 10000;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   padding: 35px;
 
-  background:
-    rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.88);
 
   backdrop-filter: blur(3px);
 
-  animation:
-    personnel-overlay-in 0.15s ease;
+  animation: personnel-overlay-in 0.15s ease;
 }
 
 /* =========================
@@ -171,13 +152,11 @@
   position: relative;
 
   width: min(1100px, 100%);
-
   max-height: 90vh;
 
   overflow: auto;
 
-  border:
-    1px solid rgba(140, 255, 160, 0.35);
+  border: 1px solid rgba(140, 255, 160, 0.35);
 
   background:
     linear-gradient(
@@ -187,13 +166,10 @@
     );
 
   box-shadow:
-    0 0 40px
-      rgba(0, 255, 80, 0.08),
-    inset 0 0 35px
-      rgba(0, 255, 80, 0.025);
+    0 0 40px rgba(0, 255, 80, 0.08),
+    inset 0 0 35px rgba(0, 255, 80, 0.025);
 
-  animation:
-    personnel-modal-in 0.2s ease;
+  animation: personnel-modal-in 0.2s ease;
 }
 
 /* =========================
@@ -241,7 +217,6 @@
   right: 14px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -250,8 +225,7 @@
 
   cursor: pointer;
 
-  border:
-    1px solid rgba(140, 255, 160, 0.18);
+  border: 1px solid rgba(140, 255, 160, 0.18);
 
   color: #83ab88;
 
@@ -263,8 +237,7 @@
 .personnel-modal-close:hover {
   color: #caffd0;
 
-  border-color:
-    rgba(140, 255, 160, 0.5);
+  border-color: rgba(140, 255, 160, 0.5);
 }
 
 /* =========================
@@ -273,20 +246,13 @@
 
 .personnel-modal-top {
   display: flex;
-
   justify-content: space-between;
 
-  padding:
-    15px
-    52px
-    15px
-    18px;
+  padding: 15px 52px 15px 18px;
 
-  border-bottom:
-    1px solid rgba(140, 255, 160, 0.12);
+  border-bottom: 1px solid rgba(140, 255, 160, 0.12);
 
   font-size: 25px;
-
   letter-spacing: 1.8px;
 
   color: #83ab88;
@@ -316,11 +282,9 @@
   position: relative;
 
   width: 100%;
-
   min-height: 390px;
 
-  border:
-    1px solid rgba(130, 255, 150, 0.2);
+  border: 1px solid rgba(130, 255, 150, 0.2);
 
   overflow: hidden;
 
@@ -329,9 +293,7 @@
 
 .personnel-modal-image img {
   width: 100%;
-
   height: 100%;
-
   min-height: 390px;
 
   display: block;
@@ -380,7 +342,6 @@
 
 .personnel-modal-classification {
   font-size: 20px;
-
   letter-spacing: 2px;
 
   color: #4e7554;
@@ -390,9 +351,7 @@
   margin-top: 12px;
 
   font-size: 35px;
-
   font-weight: normal;
-
   letter-spacing: 4px;
 
   color: #59a164;
@@ -407,7 +366,6 @@
   margin-top: 8px;
 
   font-size: 15px;
-
   letter-spacing: 2px;
 
   color: #6d9472;
@@ -420,8 +378,7 @@
 .personnel-data-grid {
   display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   gap: 10px;
 
@@ -431,11 +388,9 @@
 .personnel-data-grid > div {
   padding: 12px;
 
-  border:
-    1px solid rgba(130, 255, 150, 0.12);
+  border: 1px solid rgba(130, 255, 150, 0.12);
 
-  background:
-    rgba(80, 255, 100, 0.018);
+  background: rgba(80, 255, 100, 0.018);
 }
 
 .personnel-data-grid span {
@@ -444,7 +399,6 @@
   margin-bottom: 7px;
 
   font-size: 18px;
-
   letter-spacing: 2px;
 
   color: #a5d9aa;
@@ -452,7 +406,6 @@
 
 .personnel-data-grid strong {
   font-size: 15px;
-
   font-weight: normal;
 
   letter-spacing: 1px;
@@ -469,8 +422,7 @@
 
   padding-top: 18px;
 
-  border-top:
-    1px solid rgba(130, 255, 150, 0.12);
+  border-top: 1px solid rgba(130, 255, 150, 0.12);
 }
 
 .personnel-history > span {
@@ -479,7 +431,6 @@
   margin-bottom: 12px;
 
   font-size: 20px;
-
   letter-spacing: 2px;
 
   color: #a5d9aa;
@@ -489,7 +440,6 @@
   max-width: 700px;
 
   font-size: 16px;
-
   line-height: 1.8;
 
   letter-spacing: 0.4px;
@@ -503,16 +453,13 @@
 
 .personnel-modal-footer {
   display: flex;
-
   justify-content: space-between;
 
   padding: 11px 18px;
 
-  border-top:
-    1px solid rgba(130, 255, 150, 0.12);
+  border-top: 1px solid rgba(130, 255, 150, 0.12);
 
   font-size: 15px;
-
   letter-spacing: 1.5px;
 
   color: #a5d9aa;
@@ -536,15 +483,13 @@
   from {
     opacity: 0;
 
-    transform:
-      scale(0.98);
+    transform: scale(0.98);
   }
 
   to {
     opacity: 1;
 
-    transform:
-      scale(1);
+    transform: scale(1);
   }
 }
 
@@ -577,6 +522,8 @@
   }
 
   .personnel-grid {
+    width: 100%;
+
     gap: 14px;
   }
 
