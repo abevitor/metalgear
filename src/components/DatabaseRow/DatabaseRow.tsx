@@ -1,5 +1,5 @@
 import type { DatabaseRecord } from "../../data/database";
-import './DatabaseRecord.css'
+import './DatabaseRow.css'
 
 interface DatabaseRowProps {
     record: DatabaseRecord
