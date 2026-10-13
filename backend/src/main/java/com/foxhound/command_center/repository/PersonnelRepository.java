@@ -7,5 +7,7 @@ import com.foxhound.command_center.entity.Personnel;
 public interface PersonnelRepository extends JpaRepository<Personnel, Long> {
 
     boolean existsByCode(String code);
+
+    boolean existsByCodeAndIdNot(String code, Long id);
     
 }

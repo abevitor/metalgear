@@ -42,5 +42,35 @@ public class PersonnelService {
 
         return personnelRepository.save(personnel);
     }
+
+    public Personnel update(Long id, Personnel updatedPersonnel) {
+
+        Personnel existingPersonnel = findById(id);
+
+        if(personnelRepository.existsByCodeAndIdNot(updatedPersonnel.getCode(), id)) {
+
+            throw new ResponseStatusException(HttpStatus.CONFLICT,
+                "Já existe outro agente com esse código"
+            );
+        }
+
+        existingPersonnel.setCode(updatedPersonnel.getCode());
+        existingPersonnel.setName(updatedPersonnel.getName());
+        existingPersonnel.setCodename(updatedPersonnel.getCodename());
+        existingPersonnel.setAffiliation(updatedPersonnel.getAffiliation());
+        existingPersonnel.setStatus(updatedPersonnel.getStatus());
+        existingPersonnel.setSpecialty(updatedPersonnel.getSpecialty());
+        existingPersonnel.setCardImage(updatedPersonnel.getCardImage());
+        existingPersonnel.setModalImage(updatedPersonnel.getModalImage());
+        existingPersonnel.setHistory(updatedPersonnel.getHistory());
+
+        return personnelRepository.save(existingPersonnel);
+    }
+
+    public void delete(Long id) {
+        Personnel personnel = findById(id);
+
+        personnelRepository.delete(personnel);
+    }
     
 }
