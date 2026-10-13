@@ -1,8 +1,21 @@
-node_modules/
-dist/
-.env
-.env.local
+# Dependências e builds
+**/node_modules/
+**/dist/
+**/build/
+**/.gradle/
+
+# Variáveis de ambiente e segredos
+.env*
+!.env.example
+
+# Logs
 *.log
+
+# Arquivos de sistema
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# IDEs
 .vscode/
+.idea/
