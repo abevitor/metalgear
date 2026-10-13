@@ -26,10 +26,23 @@ public class PersonnelController {
         return personnelService.findAll();
     }
 
+    @GetMapping("/{id")
+    public Personnel findById(@PathVariable Long id) {
+        return personnelService.findById(id);
+    }
+
     @PostMapping 
     @ResponseStatus(HttpStatus.CREATED)
     public Personnel create(@Valid @RequestBody Personnel personnel) {
         return personnelService.create(personnel);
+    }
+
+    @PutMapping("/{id}")
+    public Personnel update(
+        @PathVariable Long id,
+        @Valid @RequestBody Personnel personnel
+    ) {
+        return personnelService.update(id, personnel);
     }
     
 }
