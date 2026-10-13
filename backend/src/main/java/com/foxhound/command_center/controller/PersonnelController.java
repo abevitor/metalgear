@@ -26,7 +26,7 @@ public class PersonnelController {
         return personnelService.findAll();
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public Personnel findById(@PathVariable Long id) {
         return personnelService.findById(id);
     }
