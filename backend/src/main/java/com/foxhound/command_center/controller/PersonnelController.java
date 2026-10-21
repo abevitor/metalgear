@@ -44,5 +44,11 @@ public class PersonnelController {
     ) {
         return personnelService.update(id, personnel);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        personnelService.delete(id);
+    }
     
 }
