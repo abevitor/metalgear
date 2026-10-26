@@ -1,5 +1,6 @@
 export interface Character {
   id: string
+  databaseId?: number
   name: string
   codename: string
   affiliation: string
