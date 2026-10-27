@@ -1,4 +1,3 @@
-
 import type { Character } from '../data/personnel'
 
 export interface PersonnelPayload {
@@ -60,10 +59,7 @@ async function parseResponse<T>(response: Response): Promise<T> {
           ? Object.values(error.fieldErrors).join(' ')
           : ''
 
-        message =
-          fieldMessages ||
-          error.message ||
-          message
+        message = fieldMessages || error.message || message
       } catch {
         message = responseText
       }
@@ -79,10 +75,34 @@ async function parseResponse<T>(response: Response): Promise<T> {
   return JSON.parse(responseText) as T
 }
 
+function buildFormData(
+  payload: PersonnelPayload,
+  cardImageFile?: File | null,
+  modalImageFile?: File | null,
+): FormData {
+  const formData = new FormData()
+
+  formData.append(
+    'request',
+    new Blob([JSON.stringify(payload)], {
+      type: 'application/json',
+    }),
+  )
+
+  if (cardImageFile) {
+    formData.append('cardImage', cardImageFile)
+  }
+
+  if (modalImageFile) {
+    formData.append('modalImage', modalImageFile)
+  }
+
+  return formData
+}
+
 // GET: listar todos os agentes
 export async function getPersonnel(): Promise<Character[]> {
   const response = await fetch('/api/personnel')
-
   const data = await parseResponse<PersonnelApiResponse[]>(response)
 
   return data.map(toCharacter)
@@ -91,13 +111,12 @@ export async function getPersonnel(): Promise<Character[]> {
 // POST: cadastrar um agente
 export async function createPersonnel(
   payload: PersonnelPayload,
+  cardImageFile?: File | null,
+  modalImageFile?: File | null,
 ): Promise<Character> {
   const response = await fetch('/api/personnel', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
+    body: buildFormData(payload, cardImageFile, modalImageFile),
   })
 
   const agent = await parseResponse<PersonnelApiResponse>(response)
@@ -109,13 +128,12 @@ export async function createPersonnel(
 export async function updatePersonnel(
   databaseId: number,
   payload: PersonnelPayload,
+  cardImageFile?: File | null,
+  modalImageFile?: File | null,
 ): Promise<Character> {
   const response = await fetch(`/api/personnel/${databaseId}`, {
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
+    body: buildFormData(payload, cardImageFile, modalImageFile),
   })
 
   const agent = await parseResponse<PersonnelApiResponse>(response)

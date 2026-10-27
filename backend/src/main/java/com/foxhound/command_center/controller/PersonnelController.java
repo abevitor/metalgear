@@ -5,8 +5,10 @@ import java.util.List;
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.foxhound.command_center.dto.PersonnelRequest;
 import com.foxhound.command_center.dto.PersonnelResponse;
@@ -22,40 +24,46 @@ public class PersonnelController {
         this.personnelService = personnelService;
     }
 
-    // GET /api/personnel
     @GetMapping
     public List<PersonnelResponse> findAll() {
         return personnelService.findAll();
     }
 
-    // GET /api/personnel/{id}
     @GetMapping("/{id}")
     public PersonnelResponse findById(@PathVariable Long id) {
         return personnelService.findById(id);
     }
 
-    // POST /api/personnel
-    @PostMapping
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<PersonnelResponse> create(
-            @Valid @RequestBody PersonnelRequest request) {
+            @Valid @RequestPart("request") PersonnelRequest request,
+            @RequestPart(value = "cardImage", required = false)
+            MultipartFile cardImage,
+            @RequestPart(value = "modalImage", required = false)
+            MultipartFile modalImage) {
 
-        PersonnelResponse created = personnelService.create(request);
+        PersonnelResponse created = personnelService.create(request, modalImage, modalImage);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(created);
     }
 
-    // PUT /api/personnel/{id}
-    @PutMapping("/{id}")
+    @PutMapping(
+            value = "/{id}",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
     public PersonnelResponse update(
             @PathVariable Long id,
-            @Valid @RequestBody PersonnelRequest request) {
+            @Valid @RequestPart("request") PersonnelRequest request,
+            @RequestPart(value = "cardImage", required = false)
+            MultipartFile cardImage,
+            @RequestPart(value = "modalImage", required = false)
+            MultipartFile modalImage) {
 
-        return personnelService.update(id, request);
+        return personnelService.update(id, request, modalImage, modalImage);
     }
 
-    // DELETE /api/personnel/{id}
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.foxhound.command_center.dto.PersonnelRequest;
@@ -15,12 +17,16 @@ import com.foxhound.command_center.repository.PersonnelRepository;
 public class PersonnelService {
 
     private final PersonnelRepository personnelRepository;
+    private final PersonnelImageStorageService imageStorageService;
 
-    public PersonnelService(PersonnelRepository personnelRepository) {
+    public PersonnelService(
+            PersonnelRepository personnelRepository,
+            PersonnelImageStorageService imageStorageService) {
+
         this.personnelRepository = personnelRepository;
+        this.imageStorageService = imageStorageService;
     }
 
-    // Lista todos os agentes
     public List<PersonnelResponse> findAll() {
         return personnelRepository.findAll()
                 .stream()
@@ -28,13 +34,15 @@ public class PersonnelService {
                 .toList();
     }
 
-    // Busca um agente pelo ID
     public PersonnelResponse findById(Long id) {
         return toResponse(findEntityById(id));
     }
 
-    // Cadastra um novo agente
-    public PersonnelResponse create(PersonnelRequest request) {
+    @Transactional
+    public PersonnelResponse create(
+            PersonnelRequest request,
+            MultipartFile cardImage,
+            MultipartFile modalImage) {
 
         if (personnelRepository.existsByCode(request.code())) {
             throw new ResponseStatusException(
@@ -46,15 +54,25 @@ public class PersonnelService {
         Personnel personnel = new Personnel();
         copyRequestToEntity(request, personnel);
 
+        if (hasFile(cardImage)) {
+            personnel.setCardImage(imageStorageService.store(cardImage));
+        }
+
+        if (hasFile(modalImage)) {
+            personnel.setModalImage(imageStorageService.store(modalImage));
+        }
+
         Personnel savedPersonnel = personnelRepository.save(personnel);
 
         return toResponse(savedPersonnel);
     }
 
-    // Atualiza um agente existente
+    @Transactional
     public PersonnelResponse update(
             Long id,
-            PersonnelRequest request) {
+            PersonnelRequest request,
+            MultipartFile cardImage,
+            MultipartFile modalImage) {
 
         Personnel existingPersonnel = findEntityById(id);
 
@@ -67,23 +85,55 @@ public class PersonnelService {
             );
         }
 
+        String oldCardImage = existingPersonnel.getCardImage();
+        String oldModalImage = existingPersonnel.getModalImage();
+
         copyRequestToEntity(request, existingPersonnel);
+
+        if (hasFile(cardImage)) {
+            existingPersonnel.setCardImage(
+                    imageStorageService.store(cardImage)
+            );
+        }
+
+        if (hasFile(modalImage)) {
+            existingPersonnel.setModalImage(
+                    imageStorageService.store(modalImage)
+            );
+        }
 
         Personnel savedPersonnel =
                 personnelRepository.save(existingPersonnel);
 
+        if (hasFile(cardImage)) {
+            imageStorageService.deleteIfManaged(oldCardImage);
+        }
+
+        if (hasFile(modalImage)) {
+            imageStorageService.deleteIfManaged(oldModalImage);
+        }
+
         return toResponse(savedPersonnel);
     }
 
-    // Exclui um agente
+    @Transactional
     public void delete(Long id) {
 
         Personnel personnel = findEntityById(id);
 
+        String cardImage = personnel.getCardImage();
+        String modalImage = personnel.getModalImage();
+
         personnelRepository.delete(personnel);
+
+        imageStorageService.deleteIfManaged(cardImage);
+        imageStorageService.deleteIfManaged(modalImage);
     }
 
-    // Busca a entidade ou lança um erro 404
+    private boolean hasFile(MultipartFile file) {
+        return file != null && !file.isEmpty();
+    }
+
     private Personnel findEntityById(Long id) {
         return personnelRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
@@ -92,7 +142,6 @@ public class PersonnelService {
                 ));
     }
 
-    // Copia os dados do DTO para a entidade JPA
     private void copyRequestToEntity(
             PersonnelRequest request,
             Personnel personnel) {
@@ -108,7 +157,6 @@ public class PersonnelService {
         personnel.setHistory(request.history());
     }
 
-    // Converte a entidade JPA em DTO de resposta
     private PersonnelResponse toResponse(Personnel personnel) {
 
         return new PersonnelResponse(
