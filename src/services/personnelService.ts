@@ -1,4 +1,17 @@
+
 import type { Character } from '../data/personnel'
+
+export interface PersonnelPayload {
+  code: string
+  name: string
+  codename: string
+  affiliation: string
+  status: string
+  specialty: string
+  cardImage: string
+  modalImage: string
+  history: string
+}
 
 interface PersonnelApiResponse {
   id: number
@@ -18,40 +31,10 @@ interface ApiErrorResponse {
   fieldErrors?: Record<string, string>
 }
 
-async function getErrorMessage(response: Response): Promise<string> {
-  try {
-    const error = (await response.json()) as ApiErrorResponse
-
-    const fieldMessages = error.fieldErrors
-      ? Object.values(error.fieldErrors).join(' ')
-      : ''
-
-    return (
-      fieldMessages ||
-      error.message ||
-      `Erro na API. Código HTTP: ${response.status}`
-    )
-  } catch {
-    return `Não foi possível consultar a API. HTTP ${response.status}.`
-  }
-}
-
-export async function getPersonnel(): Promise<Character[]> {
-  const response = await fetch('/api/personnel')
-
-  if (!response.ok) {
-    throw new Error(await getErrorMessage(response))
-  }
-
-  const data = (await response.json()) as PersonnelApiResponse[]
-
-  return data.map((agent) => ({
-    // Preserva o código exibido nos cards atuais.
+function toCharacter(agent: PersonnelApiResponse): Character {
+  return {
     id: agent.code,
-
-    // Guarda também o ID numérico do MySQL.
     databaseId: agent.id,
-
     name: agent.name,
     codename: agent.codename,
     affiliation: agent.affiliation ?? '',
@@ -60,5 +43,93 @@ export async function getPersonnel(): Promise<Character[]> {
     cardImage: agent.cardImage ?? '',
     modalImage: agent.modalImage ?? '',
     history: agent.history ?? '',
-  }))
+  }
+}
+
+async function parseResponse<T>(response: Response): Promise<T> {
+  const responseText = await response.text()
+
+  if (!response.ok) {
+    let message = `Erro HTTP ${response.status}.`
+
+    if (responseText.trim()) {
+      try {
+        const error = JSON.parse(responseText) as ApiErrorResponse
+
+        const fieldMessages = error.fieldErrors
+          ? Object.values(error.fieldErrors).join(' ')
+          : ''
+
+        message =
+          fieldMessages ||
+          error.message ||
+          message
+      } catch {
+        message = responseText
+      }
+    }
+
+    throw new Error(message)
+  }
+
+  if (!responseText.trim()) {
+    return undefined as T
+  }
+
+  return JSON.parse(responseText) as T
+}
+
+// GET: listar todos os agentes
+export async function getPersonnel(): Promise<Character[]> {
+  const response = await fetch('/api/personnel')
+
+  const data = await parseResponse<PersonnelApiResponse[]>(response)
+
+  return data.map(toCharacter)
+}
+
+// POST: cadastrar um agente
+export async function createPersonnel(
+  payload: PersonnelPayload,
+): Promise<Character> {
+  const response = await fetch('/api/personnel', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+
+  const agent = await parseResponse<PersonnelApiResponse>(response)
+
+  return toCharacter(agent)
+}
+
+// PUT: atualizar um agente
+export async function updatePersonnel(
+  databaseId: number,
+  payload: PersonnelPayload,
+): Promise<Character> {
+  const response = await fetch(`/api/personnel/${databaseId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+
+  const agent = await parseResponse<PersonnelApiResponse>(response)
+
+  return toCharacter(agent)
+}
+
+// DELETE: excluir um agente
+export async function deletePersonnel(
+  databaseId: number,
+): Promise<void> {
+  const response = await fetch(`/api/personnel/${databaseId}`, {
+    method: 'DELETE',
+  })
+
+  await parseResponse<void>(response)
 }
