@@ -846,3 +846,21 @@
     width: 100%;
   }
 }
+.personnel-image-preview {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  max-height: 220px;
+  margin-top: 12px;
+  object-fit: contain;
+  background: #080b08;
+  border: 1px solid rgba(65, 255, 0, 0.35);
+}
+
+.personnel-image-filename {
+  display: block;
+  margin-top: 8px;
+  color: #41ff00;
+  overflow-wrap: anywhere;
+  font-size: 0.75rem;
+}

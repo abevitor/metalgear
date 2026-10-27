@@ -1,5 +1,5 @@
-
 import { useCallback, useEffect, useState } from 'react'
+import type { ChangeEvent, FormEvent } from 'react'
 import { Pencil, Plus, Save, Trash2, X } from 'lucide-react'
 
 import { PersonnelCard } from '../components/PersonnelCard/PersonnelCard'
@@ -13,6 +13,26 @@ import {
 } from '../services/personnelService'
 
 import './Personnel.css'
+
+// Cria uma URL temporária para visualizar um arquivo antes do upload.
+function useObjectUrl(file: File | null): string | null {
+  const [url, setUrl] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!file) {
+      setUrl(null)
+      return
+    }
+
+    const objectUrl = URL.createObjectURL(file)
+    setUrl(objectUrl)
+
+    // Libera a URL temporária quando o arquivo muda ou o componente desmonta.
+    return () => URL.revokeObjectURL(objectUrl)
+  }, [file])
+
+  return url
+}
 
 const emptyForm: PersonnelPayload = {
   code: '',
@@ -39,11 +59,19 @@ export function Personnel() {
     useState<Character | null>(null)
 
   const [formData, setFormData] =
-    useState<PersonnelPayload>(emptyForm)
+    useState<PersonnelPayload>({ ...emptyForm })
 
   const [formError, setFormError] = useState<string | null>(null)
   const [isSaving, setIsSaving] = useState(false)
   const [deletingId, setDeletingId] = useState<number | null>(null)
+
+  // Arquivos selecionados pelo usuário.
+  const [cardImageFile, setCardImageFile] = useState<File | null>(null)
+  const [modalImageFile, setModalImageFile] = useState<File | null>(null)
+
+  // URLs usadas somente para exibir a pré-visualização.
+  const cardImagePreview = useObjectUrl(cardImageFile)
+  const modalImagePreview = useObjectUrl(modalImageFile)
 
   // Carrega os registros do MySQL através da API.
   const loadPersonnel = useCallback(async () => {
@@ -69,6 +97,8 @@ export function Personnel() {
 
   // Abre o formulário para cadastrar um novo agente.
   function openCreateForm() {
+    setCardImageFile(null)
+    setModalImageFile(null)
     setEditingCharacter(null)
     setFormData({ ...emptyForm })
     setFormError(null)
@@ -78,6 +108,9 @@ export function Personnel() {
 
   // Abre o formulário preenchido com os dados do agente escolhido.
   function openEditForm(character: Character) {
+    setCardImageFile(null)
+    setModalImageFile(null)
+
     setEditingCharacter(character)
 
     setFormData({
@@ -97,12 +130,15 @@ export function Personnel() {
     setIsFormOpen(true)
   }
 
+  // Fecha o formulário e limpa o estado temporário.
   function closeForm() {
     if (isSaving) return
 
     setIsFormOpen(false)
     setEditingCharacter(null)
     setFormData({ ...emptyForm })
+    setCardImageFile(null)
+    setModalImageFile(null)
     setFormError(null)
   }
 
@@ -117,9 +153,61 @@ export function Personnel() {
     }))
   }
 
+  // Valida e armazena o arquivo selecionado pelo usuário.
+  function handleImageChange(
+    type: 'card' | 'modal',
+    event: ChangeEvent<HTMLInputElement>,
+  ) {
+    const file = event.currentTarget.files?.[0] ?? null
+
+    if (file) {
+      const allowedTypes = [
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+      ]
+
+      if (!allowedTypes.includes(file.type)) {
+        setFormError('Selecione uma imagem JPG, PNG ou WEBP.')
+        event.currentTarget.value = ''
+
+        if (type === 'card') {
+          setCardImageFile(null)
+        } else {
+          setModalImageFile(null)
+        }
+
+        return
+      }
+
+      const maxFileSize = 5 * 1024 * 1024
+
+      if (file.size > maxFileSize) {
+        setFormError('A imagem deve ter no máximo 5 MB.')
+        event.currentTarget.value = ''
+
+        if (type === 'card') {
+          setCardImageFile(null)
+        } else {
+          setModalImageFile(null)
+        }
+
+        return
+      }
+    }
+
+    setFormError(null)
+
+    if (type === 'card') {
+      setCardImageFile(file)
+    } else {
+      setModalImageFile(file)
+    }
+  }
+
   // Cadastra ou atualiza de acordo com o modo do formulário.
   async function handleSubmit(
-    event: React.FormEvent<HTMLFormElement>,
+    event: FormEvent<HTMLFormElement>,
   ) {
     event.preventDefault()
 
@@ -133,8 +221,11 @@ export function Personnel() {
       affiliation: formData.affiliation.trim(),
       status: formData.status.trim(),
       specialty: formData.specialty.trim(),
+
+      // Mantém os caminhos atuais se nenhuma imagem nova for selecionada.
       cardImage: formData.cardImage.trim(),
       modalImage: formData.modalImage.trim(),
+
       history: formData.history.trim(),
     }
 
@@ -147,14 +238,22 @@ export function Personnel() {
         await updatePersonnel(
           editingCharacter.databaseId,
           payload,
+          cardImageFile,
+          modalImageFile,
         )
       } else {
-        await createPersonnel(payload)
+        await createPersonnel(
+          payload,
+          cardImageFile,
+          modalImageFile,
+        )
       }
 
       setIsFormOpen(false)
       setEditingCharacter(null)
       setFormData({ ...emptyForm })
+      setCardImageFile(null)
+      setModalImageFile(null)
 
       await loadPersonnel()
     } catch (error) {
@@ -317,17 +416,23 @@ export function Personnel() {
                 <div className="personnel-data-grid">
                   <div>
                     <span>AFFILIATION</span>
-                    <strong>{selectedCharacter.affiliation || 'UNKNOWN'}</strong>
+                    <strong>
+                      {selectedCharacter.affiliation || 'UNKNOWN'}
+                    </strong>
                   </div>
 
                   <div>
                     <span>STATUS</span>
-                    <strong>{selectedCharacter.status || 'UNKNOWN'}</strong>
+                    <strong>
+                      {selectedCharacter.status || 'UNKNOWN'}
+                    </strong>
                   </div>
 
                   <div>
                     <span>SPECIALTY</span>
-                    <strong>{selectedCharacter.specialty || 'UNASSIGNED'}</strong>
+                    <strong>
+                      {selectedCharacter.specialty || 'UNASSIGNED'}
+                    </strong>
                   </div>
 
                   <div>
@@ -338,7 +443,9 @@ export function Personnel() {
 
                 <div className="personnel-history">
                   <span>HISTORY / BIOGRAPHICAL DATA</span>
-                  <p>{selectedCharacter.history || 'NO HISTORY AVAILABLE.'}</p>
+                  <p>
+                    {selectedCharacter.history || 'NO HISTORY AVAILABLE.'}
+                  </p>
                 </div>
 
                 <div className="personnel-record-actions">
@@ -354,7 +461,9 @@ export function Personnel() {
                   <button
                     className="personnel-action-button personnel-delete-button"
                     type="button"
-                    disabled={deletingId === selectedCharacter.databaseId}
+                    disabled={
+                      deletingId === selectedCharacter.databaseId
+                    }
                     onClick={() => void handleDelete(selectedCharacter)}
                   >
                     <Trash2 size={15} />
@@ -400,6 +509,7 @@ export function Personnel() {
                 className="personnel-modal-close"
                 type="button"
                 onClick={closeForm}
+                disabled={isSaving}
                 aria-label="Fechar formulário"
               >
                 <X size={18} />
@@ -494,30 +604,58 @@ export function Personnel() {
                   />
                 </label>
 
+                {/* Seletor da imagem do card */}
                 <label className="personnel-editor-full">
-                  <span>CARD IMAGE PATH</span>
+                  <span>CARD IMAGE</span>
 
                   <input
-                    value={formData.cardImage}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
                     onChange={(event) =>
-                      updateField('cardImage', event.target.value)
+                      handleImageChange('card', event)
                     }
-                    placeholder="/images/snake.webp"
-                    maxLength={500}
                   />
+
+                  {cardImageFile && (
+                    <small className="personnel-image-filename">
+                      SELECTED: {cardImageFile.name}
+                    </small>
+                  )}
+
+                  {(cardImagePreview || formData.cardImage) && (
+                    <img
+                      className="personnel-image-preview"
+                      src={cardImagePreview ?? formData.cardImage}
+                      alt="Pré-visualização da imagem do card"
+                    />
+                  )}
                 </label>
 
+                {/* Seletor da imagem do modal */}
                 <label className="personnel-editor-full">
-                  <span>MODAL IMAGE PATH</span>
+                  <span>MODAL IMAGE</span>
 
                   <input
-                    value={formData.modalImage}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
                     onChange={(event) =>
-                      updateField('modalImage', event.target.value)
+                      handleImageChange('modal', event)
                     }
-                    placeholder="/images/snake.webp"
-                    maxLength={500}
                   />
+
+                  {modalImageFile && (
+                    <small className="personnel-image-filename">
+                      SELECTED: {modalImageFile.name}
+                    </small>
+                  )}
+
+                  {(modalImagePreview || formData.modalImage) && (
+                    <img
+                      className="personnel-image-preview"
+                      src={modalImagePreview ?? formData.modalImage}
+                      alt="Pré-visualização da imagem dos detalhes"
+                    />
+                  )}
                 </label>
 
                 <label className="personnel-editor-full">
